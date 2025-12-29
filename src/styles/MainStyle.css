@@ -1,0 +1,264 @@
+/*  */
+.main-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(92.46deg, #55838b -44.27%, #77c3d0 109.59%);
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.loader-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loader-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 34px;
+}
+.loader-line {
+  width: 240px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.loader-line span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #ffffff, #cfcfcf, #ffffff);
+  transform-origin: left;
+  border-radius: 0px;
+}
+.loader-tagline {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+}
+/* header */
+.container {
+  max-width: 95%;
+  margin: auto;
+}
+.container-fluid {
+  padding: 0;
+}
+/* OFFCANVAS */
+html body .top-offcanvas {
+  background: #fff;
+  height: 45vh !important;
+  border-bottom: unset;
+}
+
+.menu-wrapper {
+  padding: 4% 15%;
+  padding-bottom: 0;
+}
+
+/* CLOSE BUTTON */
+.menu-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 22px;
+  background: #2f6f6d;
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  line-height: 1;
+  cursor: pointer;
+}
+.offcanvas-backdrop {
+  background-color: transparent;
+  height: auto;
+}
+/* MENU LINKS */
+.menu-col a {
+  display: block;
+  padding: 14px 0;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-bottom: 1px solid #9fa3a6;
+  transition: all 0.3s ease;
+}
+
+.menu-col a.active {
+  background: #2f6f6d;
+  color: #ffffff;
+  padding-left: 12px;
+  transition: all 0.3s ease;
+}
+
+/* DIVIDERS */
+.divider-col {
+  display: flex;
+  justify-content: center;
+}
+
+.vertical-divider {
+  width: 2px;
+  height: 220px;
+  background: #2f6f6d;
+}
+
+/* HOVER */
+.menu-col a:hover {
+  color: #fff;
+  background: #2f6f6d;
+  padding-left: 12px;
+  transition: all 0.3s ease;
+}
+.col-sm-6.mainmenu {
+  text-align: end;
+}
+.col-sm-6.mainmenu button {
+  background: transparent;
+  border: none;
+  margin-left: 3%;
+}
+.col-sm-6.mainmenu img {
+  width: 6%;
+  height: auto;
+  cursor: pointer;
+}
+.col-sm-6.mainmenu button.menu-btn img {
+  width: auto;
+}
+.mainHeader {
+  padding: 12px;
+}
+.mainHeader.default-header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+}
+/* footer */
+.footer {
+  background: #cbf8ff;
+  padding: 50px 0;
+}
+.footer p {
+  margin: 0;
+}
+.footer ul {
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  list-style: none;
+}
+ul.footer-links {
+  padding-top: 3%;
+}
+ul.footer-links a {
+  color: #000;
+  text-decoration: none;
+}
+.container-fluid.footer img {
+  width: 5%;
+  height: auto;
+  object-fit: cover;
+}
+.container-fluid.footer ul.social-links img {
+  width: 35px;
+  height: 35px;
+}
+.container-fluid.copyright {
+  background: #33737e;
+  text-align: center;
+  padding: 15px;
+}
+.container-fluid.copyright p {
+  color: #fff;
+  margin: 0;
+}
+
+.vertical-swiper {
+  height: 100vh;
+}
+
+.verticalSlides {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-slide h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.hero-buttons button {
+  margin-right: 16px;
+  padding: 10px 20px;
+  background: #f2c94c;
+  border: none;
+  cursor: pointer;
+}
+
+.main-header {
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  z-index: 999;
+}
+.home-icon {
+  cursor: pointer;
+}
+a.yellow-btn {
+  background: #eccd75;
+  display: block;
+  padding: 20px;
+  color: #000;
+  text-decoration: none;
+}
+.visionHouse .col-sm-6 {
+  text-align: center;
+}
+.visionHouse .col-sm-6 img {
+  width: 80%;
+  margin: auto;
+  height: auto;
+}
+.visionHouse .col-sm-3 img {
+  width: auto;
+  height: auto;
+}
+.visionHouse .col-sm-3 {
+  position: relative;
+}
+.equal {
+  position: absolute;
+  z-index: 999;
+}
+.priority {
+  left: -90%;
+  top: -12%;
+}
+.dashboard {
+  left: -20%;
+  bottom: 0;
+}
+.action {
+  left: -20%;
+  top: 30%;
+}
+.future {
+  right: -20%;
+  top: 20%;
+}
+.data {
+  right: -20%;
+  bottom: 0%;
+}
