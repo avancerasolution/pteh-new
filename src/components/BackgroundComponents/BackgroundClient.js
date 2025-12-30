@@ -2,11 +2,10 @@
 
 import { useRef, useState, useEffect, Fragment, Suspense } from "react";
 import { useSelector } from "react-redux";
-
 import Header from "@/components/Global/Header";
-import VerticalSwiper from "@/components/HomeComponents/VerticalSwiper";
+import BackgroundVertical from "./BackgroundVertical";
 
-export default function HomeClient() {
+export default function BackgroundClient() {
   const swiperRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -27,7 +26,7 @@ export default function HomeClient() {
 
       {!loading && (
         <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
-          <VerticalSwiper swiperRef={swiperRef} activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
+          <BackgroundVertical swiperRef={swiperRef} activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
         </Suspense>
       )}
     </Fragment>

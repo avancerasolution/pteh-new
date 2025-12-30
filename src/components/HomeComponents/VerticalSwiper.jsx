@@ -3,9 +3,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel } from "swiper/modules";
 import "swiper/css";
-
 import SlideOne from "./SlideOne";
 import SlideTwo from "./SlideTwo";
+import SlideThree from "./SlideThree";
 
 export default function VerticalSwiper({ swiperRef, setActiveSlide, activeSlide }) {
   return (
@@ -24,6 +24,10 @@ export default function VerticalSwiper({ swiperRef, setActiveSlide, activeSlide 
 
       <SwiperSlide>
         <SlideTwo isActive={activeSlide === 1} />
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <SlideThree isActive={activeSlide === 1} />
       </SwiperSlide>
     </Swiper>
   );

@@ -12,6 +12,7 @@ export default function SlideTwo({ isActive }) {
   const action = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1356.png";
   const dashboard = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1359.png";
   const visionHouse = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/visionHome.png";
+  const powered = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Group-1000002295.png";
 
   return (
     <AnimatePresence>
@@ -61,6 +62,8 @@ export default function SlideTwo({ isActive }) {
               </motion.div>
             </div>
           </div>
+
+          <Image src={powered} width={400} height={100} className="powered" alt="powered" />
         </motion.div>
       )}
     </AnimatePresence>

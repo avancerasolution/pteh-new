@@ -44,3 +44,29 @@ export const linkVariants = {
     }
   })
 };
+
+// card animation for steering committee
+
+export const cardContainer = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.18
+    }
+  }
+};
+
+export const cardItem = {
+  hidden: {
+    opacity: 0,
+    y: 40
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1]
+    }
+  }
+};
