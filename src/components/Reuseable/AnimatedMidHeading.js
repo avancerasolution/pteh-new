@@ -1,11 +1,7 @@
 "use client";
-
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 
-/* ===============================
-   ANIMATION VARIANTS
-================================ */
 const parent = {
   hidden: { opacity: 1 },
   show: {
@@ -32,9 +28,6 @@ const letterVariant = {
   },
 };
 
-/* ===============================
-   HTML PARSER → ANIMATED TEXT
-================================ */
 function parseHtml(html) {
   if (!html) return null;
 
@@ -43,32 +36,46 @@ function parseHtml(html) {
   let keyIndex = 0;
 
   const walk = (node) => {
-    // TEXT NODE → animate letters
+    /* =============================
+       TEXT NODE → animate words
+    ============================== */
     if (node.nodeType === Node.TEXT_NODE) {
-      return node.textContent.split(" ").map((word) =>
-        word.trim() ? (
-          <motion.span
-            key={keyIndex++}
-            variants={wordVariant}
-            style={{
-              display: "inline-block",
-              whiteSpace: "nowrap",
-              marginRight: "10px",
-            }}
-          >
-            {word.split("").map((letter, i) => (
-              <motion.span key={i} variants={letterVariant} style={{ display: "inline-block" }}>
-                {letter}
-              </motion.span>
-            ))}
-          </motion.span>
-        ) : (
-          " "
-        )
-      );
+      return node.textContent
+        .replace(/\u00A0/g, " ") // ✅ NBSP fix
+        .split(" ")
+        .map((word) =>
+          word.trim() ? (
+            <motion.span
+              key={keyIndex++}
+              variants={wordVariant}
+              style={{
+                display: "inline-block",
+                whiteSpace: "nowrap",
+                marginRight: "10px",
+              }}
+            >
+              {word.split("").map((letter, i) => (
+                <motion.span key={i} variants={letterVariant} style={{ display: "inline-block" }}>
+                  {letter}
+                </motion.span>
+              ))}
+            </motion.span>
+          ) : (
+            " "
+          )
+        );
     }
 
-    // ELEMENT NODE → keep tag (<strong>, <em>, <a>, etc.)
+    /* =============================
+       <br> TAG HANDLING ✅
+    ============================== */
+    if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "BR") {
+      return <br key={keyIndex++} />;
+    }
+
+    /* =============================
+       OTHER HTML TAGS
+    ============================== */
     if (node.nodeType === Node.ELEMENT_NODE) {
       const Tag = node.tagName.toLowerCase();
 
@@ -85,22 +92,19 @@ function parseHtml(html) {
   return Array.from(doc.body.childNodes).map(walk);
 }
 
-/* ===============================
-   COMPONENT
-================================ */
-export default function AnimatedSubHeading({ text, className, isActive = true }) {
+export default function AnimatedMidHeading({ text, className, isActive = true }) {
   const content = useMemo(() => parseHtml(text), [text]);
 
   return (
-    <motion.h4
+    <motion.h3
       className={className}
       variants={parent}
       initial="hidden"
       animate={isActive ? "show" : "hidden"}
       style={{ overflowWrap: "break-word" }}
-      aria-label="Animated Sub Heading"
+      aria-label="Animated Mid Heading"
     >
       {content}
-    </motion.h4>
+    </motion.h3>
   );
 }

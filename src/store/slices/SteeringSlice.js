@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
 export const fetchSteeringPosts = createAsyncThunk("steering/fetchPosts", async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/steering-commitie?_embed&per_page=60`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/steering-commitie?_embed&per_page=200`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch steering posts");
@@ -16,12 +16,12 @@ const steeringSlice = createSlice({
   initialState: {
     posts: [],
     loading: false,
-    error: null
+    error: null,
   },
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(fetchSteeringPosts.pending, state => {
+      .addCase(fetchSteeringPosts.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
@@ -33,12 +33,12 @@ const steeringSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       });
-  }
+  },
 });
 
 /* 🔹 Selectors */
-export const selectSteeringPosts = state => state.steering.posts;
-export const selectSteeringLoading = state => state.steering.loading;
-export const selectSteeringError = state => state.steering.error;
+export const selectSteeringPosts = (state) => state.steering.posts;
+export const selectSteeringLoading = (state) => state.steering.loading;
+export const selectSteeringError = (state) => state.steering.error;
 
 export default steeringSlice.reducer;

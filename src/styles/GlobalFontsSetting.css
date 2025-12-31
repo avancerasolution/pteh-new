@@ -75,12 +75,13 @@ b {
   font-weight: 600;
 }
 .wysiwyg-text {
-  font-family: var(--font-primary);
-  font-size: var(--text-lg);
+  font-family: "Poppins", sans-serif;
+  font-size: var(--text-xl);
   line-height: var(--lh-body);
 }
 .wysiwyg-text p,
 .wysiwyg-text li {
-  font-size: inherit;
+  font-family: "Poppins", sans-serif;
+  font-size: var(--text-xl);
   line-height: inherit;
 }

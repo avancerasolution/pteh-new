@@ -22,9 +22,9 @@ export default function AnimatedParagraph({ text, className, staggerDelay = 0.08
     show: {
       transition: {
         staggerChildren: staggerDelay,
-        delayChildren: 0.1
-      }
-    }
+        delayChildren: 0.1,
+      },
+    },
   };
 
   const wordVariant = {
@@ -32,12 +32,20 @@ export default function AnimatedParagraph({ text, className, staggerDelay = 0.08
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" }
-    }
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   return (
-    <motion.p ref={ref} className={className} variants={parent} initial="hidden" animate={controls} aria-label={text} style={{ overflowWrap: "break-word" }}>
+    <motion.p
+      ref={ref}
+      className={className}
+      variants={parent}
+      initial="hidden"
+      animate={controls}
+      aria-label={text}
+      style={{ overflowWrap: "break-word" }}
+    >
       {words.map((word, index) => (
         <motion.span
           key={index}
@@ -45,8 +53,9 @@ export default function AnimatedParagraph({ text, className, staggerDelay = 0.08
           style={{
             display: "inline-block",
             whiteSpace: "nowrap",
-            marginRight: "6px"
-          }}>
+            marginRight: "6px",
+          }}
+        >
           {word}
         </motion.span>
       ))}

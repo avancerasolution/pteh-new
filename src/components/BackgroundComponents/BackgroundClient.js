@@ -8,8 +8,7 @@ import BackgroundVertical from "./BackgroundVertical";
 export default function BackgroundClient() {
   const swiperRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
-
-  const loading = useSelector(state => state.loader.loading);
+  const loading = useSelector((state) => state.loader.loading);
 
   useEffect(() => {
     const target = sessionStorage.getItem("targetSlide");

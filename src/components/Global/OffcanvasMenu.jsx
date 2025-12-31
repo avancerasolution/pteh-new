@@ -20,7 +20,7 @@ export default function OffcanvasMenu() {
     setTimeout(() => router.push(url), 300);
   };
 
-  const isActive = url => pathname === url;
+  const isActive = (url) => pathname === url;
 
   return (
     <>
@@ -42,16 +42,20 @@ export default function OffcanvasMenu() {
                   <div className="row align-items-start">
                     {/* COLUMN 1 */}
                     <div className="col-sm-4 menu-col">
-                      <Link className={isActive("/executive-summary") ? "active" : ""} href="/executive-summary" onClick={e => navigate(e, "/executive-summary")}>
+                      <Link
+                        className={isActive("/executive-summary") ? "active" : ""}
+                        href="/executive-summary"
+                        onClick={(e) => navigate(e, "/executive-summary")}
+                      >
                         Executive Summary
                       </Link>
-                      <Link href="/case-for-change" onClick={e => navigate(e, "/case-for-change")}>
+                      <Link href="/case-for-change" onClick={(e) => navigate(e, "/case-for-change")}>
                         Case for Change
                       </Link>
-                      <Link href="/action-house" onClick={e => navigate(e, "/action-house")}>
+                      <Link href="/action-house" onClick={(e) => navigate(e, "/action-house")}>
                         Jump to the Action House
                       </Link>
-                      <Link href="/background" onClick={e => navigate(e, "/background")}>
+                      <Link href="/the-background" onClick={(e) => navigate(e, "/background")}>
                         The Background
                       </Link>
                     </div>
@@ -62,19 +66,19 @@ export default function OffcanvasMenu() {
 
                     {/* COLUMN 2 */}
                     <div className="col-sm-3 menu-col">
-                      <Link href="/dashboard" onClick={e => navigate(e, "/dashboard")}>
+                      <Link href="/dashboard" onClick={(e) => navigate(e, "/dashboard")}>
                         Dashboard
                       </Link>
-                      <Link href="/priorities" onClick={e => navigate(e, "/priorities")}>
+                      <Link href="/priorities" onClick={(e) => navigate(e, "/priorities")}>
                         Priorities
                       </Link>
-                      <Link href="/actions" onClick={e => navigate(e, "/actions")}>
+                      <Link href="/actions" onClick={(e) => navigate(e, "/actions")}>
                         Actions
                       </Link>
-                      <Link href="/data" onClick={e => navigate(e, "/data")}>
+                      <Link href="/data" onClick={(e) => navigate(e, "/data")}>
                         Data
                       </Link>
-                      <Link href="/future-state" onClick={e => navigate(e, "/future-state")}>
+                      <Link href="/future-state" onClick={(e) => navigate(e, "/future-state")}>
                         Future State
                       </Link>
                     </div>
@@ -85,16 +89,16 @@ export default function OffcanvasMenu() {
 
                     {/* COLUMN 3 */}
                     <div className="col-sm-3 menu-col">
-                      <Link href="/contact" onClick={e => navigate(e, "/contact")}>
+                      <Link href="/contact" onClick={(e) => navigate(e, "/contact")}>
                         Get in Touch
                       </Link>
-                      <Link href="/donate" onClick={e => navigate(e, "/donate")}>
+                      <Link href="/donate" onClick={(e) => navigate(e, "/donate")}>
                         Donate
                       </Link>
-                      <Link href="/privacy-policy" onClick={e => navigate(e, "/privacy-policy")}>
+                      <Link href="/privacy-policy" onClick={(e) => navigate(e, "/privacy-policy")}>
                         Privacy Policy
                       </Link>
-                      <Link href="/acknowledgements" onClick={e => navigate(e, "/acknowledgements")}>
+                      <Link href="/acknowledgements" onClick={(e) => navigate(e, "/acknowledgements")}>
                         Acknowledgements
                       </Link>
                     </div>
