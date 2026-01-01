@@ -12,7 +12,7 @@ import OffcanvasMenu from "./OffcanvasMenu";
 import { goToVision } from "@/lib/GoTo";
 
 function Header({ swiperRef, activeSlide }) {
-  const loading = useSelector(state => state.loader.loading);
+  const loading = useSelector((state) => state.loader.loading);
   const [isSticky, setSticky] = useState(false);
   const router = useRouter();
 
@@ -29,15 +29,25 @@ function Header({ swiperRef, activeSlide }) {
     <div className={`mainHeader default-header ${isSticky ? "hide-header" : ""} slide-${activeSlide}`}>
       <div className="container">
         <div className="row fixedheader">
-          <motion.div initial={{ opacity: 0, x: -200 }} animate={!loading ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }} className="col-sm-6">
+          <motion.div
+            initial={{ opacity: 0, x: -200 }}
+            animate={!loading ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="col-sm-6"
+          >
             <Link href="/">
               <Image src={LOGO} alt="logo" />
             </Link>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 200 }} animate={!loading ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.6 }} className="col-sm-6 mainmenu">
+          <motion.div
+            initial={{ opacity: 0, x: 200 }}
+            animate={!loading ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="col-sm-6 mainmenu"
+          >
             {/* 🔥 HOME ICON */}
-            <Image src={Home} alt="home" onClick={() => goToVision(swiperRef, router)} style={{ cursor: "pointer" }} />
+            <Image src={Home} alt="home" onClick={() => router.push("/?slide=1")} style={{ cursor: "pointer" }} />
             <OffcanvasMenu />
           </motion.div>
         </div>

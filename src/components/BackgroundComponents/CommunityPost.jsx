@@ -114,6 +114,7 @@ export default function CommunityPost() {
                     }}
                   />
                   <div
+                    className="wysiwyg-text"
                     dangerouslySetInnerHTML={{
                       __html: activePost.content.rendered,
                     }}

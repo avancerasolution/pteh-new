@@ -1,14 +1,14 @@
-import { useRouter } from "next/navigation";
-
+// lib/GoTo.js
 export const goToVision = (swiperRef, router) => {
-  // Always remember target slide
-  sessionStorage.setItem("targetSlide", "1");
+  // 🔴 clear old junk
+  sessionStorage.removeItem("HOME_TARGET_SLIDE");
 
-  // If swiper exists (already on home)
+  // ✅ set ONLY for home
+  sessionStorage.setItem("HOME_TARGET_SLIDE", "1");
+
   if (swiperRef?.current) {
     swiperRef.current.slideTo(1);
   } else {
-    // Navigate to home
     router.push("/");
   }
 };

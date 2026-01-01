@@ -17,18 +17,39 @@ export default function SlideTwo({ isActive }) {
   return (
     <AnimatePresence>
       {isActive && (
-        <motion.div key="slide-two" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }} className="container verticalSlides visionHouse">
+        <motion.div
+          key="slide-two"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6 }}
+          className="container verticalSlides visionHouse"
+        >
           <div className="row">
             {/* LEFT COLUMN */}
             <div className="col-sm-3">
-              <motion.div whileHover={{ scale: 1.09 }} className="future equal" custom={0} variants={fromLeft} initial="hidden" animate="show">
+              <motion.div
+                whileHover={{ scale: 1.09 }}
+                className="future equal"
+                custom={0}
+                variants={fromLeft}
+                initial="hidden"
+                animate="show"
+              >
                 <Link href="/get-involved">
                   <Image src={future} alt="Future State" width={300} height={100} />
                 </Link>
               </motion.div>
 
-              <motion.div whileHover={{ scale: 1.09 }} className="data equal" custom={1} variants={fromLeft} initial="hidden" animate="show">
-                <Link href="/get-involved">
+              <motion.div
+                whileHover={{ scale: 1.09 }}
+                className="data equal"
+                custom={1}
+                variants={fromLeft}
+                initial="hidden"
+                animate="show"
+              >
+                <Link href="/our-data">
                   <Image src={data} alt="Data" width={300} height={100} />
                 </Link>
               </motion.div>
@@ -43,19 +64,39 @@ export default function SlideTwo({ isActive }) {
 
             {/* RIGHT COLUMN */}
             <div className="col-sm-3">
-              <motion.div whileHover={{ scale: 1.09 }} className="priority equal" variants={fromTop} initial="hidden" animate="show">
+              <motion.div
+                whileHover={{ scale: 1.09 }}
+                className="priority equal"
+                variants={fromTop}
+                initial="hidden"
+                animate="show"
+              >
                 <Link href="/get-involved">
                   <Image src={priority} alt="Priorities" width={300} height={100} />
                 </Link>
               </motion.div>
 
-              <motion.div whileHover={{ scale: 1.09 }} className="action equal" custom={0} variants={fromRight} initial="hidden" animate="show">
+              <motion.div
+                whileHover={{ scale: 1.09 }}
+                className="action equal"
+                custom={0}
+                variants={fromRight}
+                initial="hidden"
+                animate="show"
+              >
                 <Link href="/get-involved">
                   <Image src={action} alt="Actions" width={300} height={100} />
                 </Link>
               </motion.div>
 
-              <motion.div whileHover={{ scale: 1.09 }} className="dashboard equal" custom={1} variants={fromRight} initial="hidden" animate="show">
+              <motion.div
+                whileHover={{ scale: 1.09 }}
+                className="dashboard equal"
+                custom={1}
+                variants={fromRight}
+                initial="hidden"
+                animate="show"
+              >
                 <Link href="/get-involved">
                   <Image src={dashboard} alt="Dashboard" width={300} height={100} />
                 </Link>

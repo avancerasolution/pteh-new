@@ -2,13 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import FooterLogo from "@/assets/loader-logo.png";
 import { Fragment } from "react";
+import SocialIcons from "../Reuseable/SocialIcons";
 
 export default function Footer() {
-  const x = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Component-4.png";
-  const fb = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Facebook.png";
-  const insta = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Component-2.png";
-  const linkdin = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Component-3.png";
-
   return (
     <Fragment>
       <div className="container-fluid footer">
@@ -34,28 +30,7 @@ export default function Footer() {
               </li>
             </ul>
 
-            <ul className="social-links">
-              <li>
-                <Link href="#" target="_blank">
-                  <Image src={fb} alt="Facebook" width={24} height={24} />
-                </Link>
-              </li>
-              <li>
-                <Link href="#" target="_blank">
-                  <Image src={insta} alt="Instagram" width={24} height={24} />
-                </Link>
-              </li>
-              <li>
-                <Link href="#" target="_blank">
-                  <Image src={linkdin} alt="LinkedIn" width={24} height={24} />
-                </Link>
-              </li>
-              <li>
-                <Link href="#" target="_blank">
-                  <Image src={x} alt="X" width={24} height={24} />
-                </Link>
-              </li>
-            </ul>
+            <SocialIcons></SocialIcons>
           </div>
         </div>
       </div>

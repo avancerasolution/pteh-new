@@ -4,6 +4,13 @@ import steeringReducer from "./slices/SteeringSlice";
 import BackgroundReducer from "./slices/BackgroundSlice";
 import VideoReducer from "./slices/VideoSlice";
 import CommunityReducer from "./slices/CommunitySlice";
+import ExecutiveReducer from "./slices/ExecutiveSlice";
+import AckReducer from "./slices/AckSlice";
+import GitReducer from "./slices/GitSlice";
+import gitFormReducer from "./slices/GitFormSlice";
+import PrivacyReducer from "./slices/PrivacySlice";
+import DataPageReducer from "./slices/DataPageSlice";
+import dataReducer from "./slices/DataSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +19,12 @@ export const store = configureStore({
     Background: BackgroundReducer,
     Video: VideoReducer,
     Community: CommunityReducer,
+    Executive: ExecutiveReducer,
+    Ack: AckReducer,
+    Git: GitReducer,
+    gitForm: gitFormReducer,
+    Privacy: PrivacyReducer,
+    DataPage: DataPageReducer,
+    data: dataReducer,
   },
 });

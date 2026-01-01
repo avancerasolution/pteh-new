@@ -4,11 +4,11 @@
 :root {
   /* --font-primary: "TestMetric", sans-serif; */
   --h1: 82px;
-  --h2: 72px;
+  --h2: 62px;
   --h3: 54px;
-  --h4: 28px;
-  --h5: 24px;
-  --h6: 18px;
+  --h4: 36px;
+  --h5: 28px;
+  --h6: 22px;
   --text-xl: 20px;
   --text-lg: 18px;
   --text-md: 16px;
@@ -21,7 +21,7 @@ body {
   font-family: var(--font-primary);
   font-size: var(--text-sm);
   line-height: var(--lh-body);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 h1 {
   font-size: var(--h1);
@@ -73,6 +73,11 @@ button {
 strong,
 b {
   font-weight: 600;
+}
+.toc-h2 {
+  font-size: var(--text-xl);
+  line-height: var(--lh-body);
+  font-family: "Proxima Nova";
 }
 .wysiwyg-text {
   font-family: "Poppins", sans-serif;

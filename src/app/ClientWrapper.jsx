@@ -11,7 +11,7 @@ import Lenis from "lenis";
 
 export default function ClientWrapper({ children }) {
   const pathname = usePathname();
-  const loading = useSelector(state => state.loader.loading);
+  const loading = useSelector((state) => state.loader.loading);
 
   let pageClass = "home";
 
@@ -25,24 +25,24 @@ export default function ClientWrapper({ children }) {
         ?.replace(/[^a-zA-Z0-9-_]/g, "") || "home";
   }
 
-  useEffect(() => {
-    if (loading) return;
-    const lenis = new Lenis({
-      duration: 1.4,
-      smooth: true,
-      smoothTouch: false
-    });
+  // useEffect(() => {
+  //   if (loading) return;
+  //   const lenis = new Lenis({
+  //     duration: 1.4,
+  //     smooth: true,
+  //     smoothTouch: false
+  //   });
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
+  //   function raf(time) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
+  //   requestAnimationFrame(raf);
 
-    return () => {
-      lenis.destroy();
-    };
-  }, [loading]);
+  //   return () => {
+  //     lenis.destroy();
+  //   };
+  // }, [loading]);
 
   return (
     <>
@@ -52,7 +52,12 @@ export default function ClientWrapper({ children }) {
         {/* <Header /> */}
 
         <AnimatePresence mode="wait">
-          <motion.div key={pathname} initial={false} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, ease: "easeOut" }}>
+          <motion.div
+            key={pathname}
+            initial={false}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+          >
             {children}
           </motion.div>
         </AnimatePresence>

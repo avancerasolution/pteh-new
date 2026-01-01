@@ -9,7 +9,8 @@
   z-index: 9999;
   display: grid;
   place-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-x: hidden;
 }
 .loader-center {
   display: flex;
@@ -45,7 +46,7 @@
 }
 /* header */
 .container {
-  max-width: 95%;
+  max-width: 90%;
   margin: auto;
 }
 .container-fluid {
@@ -533,4 +534,279 @@ img.powered {
 }
 .communitycanvas .col-sm-6 h3 {
   font-weight: 700;
+}
+.common-banner {
+  background-color: #56797f;
+  position: relative;
+}
+.common-banner h1 {
+  font-weight: 700;
+  color: #fff;
+}
+.container-fluid.common-banner {
+  height: 500px;
+}
+.ab-btn {
+  position: absolute;
+  right: 0;
+  bottom: 15%;
+}
+.ab-btn a {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+.container {
+  height: 100%;
+}
+.common-banner .row {
+  align-items: center;
+  height: 100%;
+}
+.executive-summary .default-header .menu-btn img,
+.get-in-touch .default-header .menu-btn img,
+.acknowledgements .default-header .menu-btn img,
+.privacy-policy .default-header .menu-btn img,
+.our-data .default-header .menu-btn img {
+  filter: brightness(9.5);
+}
+.privacy {
+  padding: 5% 0;
+}
+
+.row.Executive .col-sm-9 {
+  padding-right: 5%;
+  padding-top: 5%;
+  padding-left: 2%;
+}
+.row.Executive .col-sm-9 ul br {
+  display: none;
+}
+.row.Executive .col-sm-9 p {
+  margin-bottom: 3px;
+}
+.row.Executive .col-sm-9 img {
+  width: 100%;
+  height: auto;
+}
+.row.Executive .col-sm-3 {
+  background: #f5f5f5;
+  padding: 3%;
+}
+.row.Executive .simple-toc {
+  position: sticky;
+  top: 20px;
+}
+.row.Executive .col-sm-3 h4 {
+  font-weight: 700;
+  color: #000;
+}
+.toc-h2 {
+  padding: 10px 0;
+  color: #000;
+  font-weight: 600;
+  border-bottom: 1px solid #000;
+}
+.Ack {
+  padding: 5%;
+}
+.Ack h2 {
+  text-align: center;
+  margin-bottom: 3%;
+  font-weight: 600;
+}
+.Ack p {
+  margin-bottom: 3px;
+}
+p,
+.wysiwyg-text {
+  line-height: 1.7;
+}
+.Git {
+  padding: 5% 0;
+}
+.Git h2 {
+  margin-bottom: 2%;
+  font-weight: 600;
+}
+.Git.form {
+  background: #e2fbff;
+}
+.form-comp {
+  text-align: center;
+  background: #436a70;
+  padding: 4% 2%;
+}
+.form-comp h3 {
+  color: #fff;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+.form-comp input {
+  height: auto;
+  padding: 15px;
+  border-radius: 0;
+  margin-bottom: 3%;
+}
+.ant-form-item-explain-error {
+  text-align: left;
+}
+.form-comp button {
+  background: #90cfd2;
+  color: #000;
+  width: 100%;
+  padding: 12px;
+  height: auto;
+  font-weight: 400;
+  font-size: 22px;
+  transform: scale(1);
+  transition: all 300ms ease-in-out;
+}
+.form-comp form .ant-btn-color-primary.ant-btn-variant-solid:hover {
+  background: #90cfd2;
+  color: #000;
+  transform: scale(0.95);
+  transition: all 300ms ease-in-out;
+}
+.phonecard img {
+  width: 110px;
+  height: 110px;
+}
+.phonecard {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 3%;
+}
+.phonecard h4 {
+  font-weight: 600;
+}
+.container-fluid.Git.form h2 {
+  margin-bottom: 5%;
+}
+.container-fluid.Git.form .col-sm-8 {
+  padding: 0% 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.GitDonate {
+  background-color: #436a70;
+  padding: 5% 0;
+}
+.GitDonate img {
+  width: 100%;
+  height: auto;
+}
+.GitDonate h2 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 2%;
+}
+.GitDonate .wysiwyg-text {
+  color: #fff;
+}
+.GitDonate h4 {
+  color: #fff;
+}
+.GitDonate a {
+  background-color: #fff;
+  text-decoration: none;
+  color: #000;
+  padding: 12px 40px;
+}
+.GitDonate p {
+  font-size: var(--text-xl);
+  color: #fff;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ffffff85;
+}
+.donateDetails {
+  background-color: #5f8288;
+  padding: 5%;
+  margin-top: 5%;
+}
+.btm-marg {
+  margin-top: 5%;
+}
+.GitDonate .row {
+  align-items: center;
+}
+.GitDonate .col-sm-7 {
+  padding: 3%;
+}
+.Git-stay {
+  background-color: #e2fbff;
+  padding: 5% 0;
+}
+.Git-stay h2 {
+  font-weight: 600;
+  margin-bottom: 2%;
+}
+ul.social-links {
+  gap: 15px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+.Git-stay ul {
+  padding: 3% 0;
+}
+.Git-stay img {
+  object-fit: contain;
+}
+.container.privacy h4 {
+  font-weight: 600;
+  margin: 20px 0;
+}
+.container.privacy p {
+  line-height: 2.1;
+}
+.privacy .phonecard {
+  margin: 3% 0;
+}
+.privacy .phonecard h4 {
+  margin: 0;
+}
+.privacy .phonecard a {
+  color: #000;
+  text-decoration: none;
+}
+.our-datas {
+  padding: 5% 0;
+}
+.data-text {
+  text-align: center;
+  padding: 0 6%;
+}
+.data-text h2 {
+  margin-bottom: 2%;
+}
+.container.alldata {
+  max-width: 100%;
+  background: #eccd75;
+  padding: 3% 2%;
+  margin: 3% 0;
+}
+.container.alldata h6,
+.container.alldata h4,
+.container.alldata h5 {
+  margin: 0;
+}
+.container.alldata h5 {
+  font-weight: 600;
+}
+.container.alldata .row {
+  padding-bottom: 2%;
+}
+.container.alldata .row div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container.alldata .col-sm-3 {
+  text-align: end;
+}
+.container.alldata .col-sm-3 h4 {
+  font-weight: 700;
+  color: #436a70;
 }
