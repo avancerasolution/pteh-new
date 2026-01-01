@@ -9,7 +9,7 @@ export function limitWords(text = "", limit = 6) {
     .join(" ");
 }
 
-export function limitWordsContent(text = "", limit = 25) {
+export function limitWordsContent(text = "", limit = 10) {
   if (!text || typeof text !== "string") return "";
 
   return text

@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { Fragment, Suspense } from "react";
+import { useRef, useState, useEffect, Fragment, Suspense } from "react";
 import { useSelector } from "react-redux";
 
 import Header from "@/components/Global/Header";
@@ -13,9 +12,18 @@ export default function HomeClient() {
 
   const loading = useSelector(state => state.loader.loading);
 
+  useEffect(() => {
+    const target = sessionStorage.getItem("targetSlide");
+
+    if (target && swiperRef.current) {
+      swiperRef.current.slideTo(Number(target));
+      sessionStorage.removeItem("targetSlide");
+    }
+  }, []);
+
   return (
     <Fragment>
-      <Header swiperRef={swiperRef} />
+      <Header swiperRef={swiperRef} activeSlide={activeSlide} />
 
       {!loading && (
         <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>

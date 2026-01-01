@@ -1,17 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/proxima-nova-2");
 
 :root {
   /* --font-primary: "TestMetric", sans-serif; */
   --h1: 82px;
-  --h2: 72px;
+  --h2: 62px;
   --h3: 54px;
-  --h4: 38px;
+  --h4: 36px;
   --h5: 28px;
   --h6: 22px;
-  --text-xl: 25px;
-  --text-lg: 22px;
-  --text-md: 20px;
-  --text-sm: 16px;
+  --text-xl: 20px;
+  --text-lg: 18px;
+  --text-md: 16px;
+  --text-sm: 14px;
   --lh-heading: 1;
   --lh-body: 1.4;
 }
@@ -20,37 +21,42 @@ body {
   font-family: var(--font-primary);
   font-size: var(--text-sm);
   line-height: var(--lh-body);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 h1 {
   font-size: var(--h1);
   line-height: var(--lh-heading);
   margin-bottom: 8px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Proxima Nova";
+  font-weight: 600;
 }
 h2 {
   font-size: var(--h2);
   line-height: var(--lh-heading);
   margin-bottom: 8px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Proxima Nova";
 }
 h3 {
   font-size: var(--h3);
   line-height: var(--lh-heading);
   margin-bottom: 8px;
+  font-family: "Proxima Nova";
 }
 h4 {
   font-size: var(--h4);
   line-height: 1.2;
   margin-bottom: 8px;
+  font-family: "Proxima Nova";
 }
 h5 {
   font-size: var(--h5);
   margin-bottom: 8px;
+  font-family: "Proxima Nova";
 }
 h6 {
   font-size: var(--h6);
   margin-bottom: 8px;
+  font-family: "Proxima Nova";
 }
 p,
 li {
@@ -58,8 +64,9 @@ li {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
-a {
-  font-size: var(--text-md);
+a,
+button {
+  font-size: var(--text-lg);
   font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
@@ -67,13 +74,19 @@ strong,
 b {
   font-weight: 600;
 }
+.toc-h2 {
+  font-size: var(--text-xl);
+  line-height: var(--lh-body);
+  font-family: "Proxima Nova";
+}
 .wysiwyg-text {
-  font-family: var(--font-primary);
-  font-size: var(--text-lg);
+  font-family: "Poppins", sans-serif;
+  font-size: var(--text-xl);
   line-height: var(--lh-body);
 }
 .wysiwyg-text p,
 .wysiwyg-text li {
-  font-size: inherit;
+  font-family: "Poppins", sans-serif;
+  font-size: var(--text-xl);
   line-height: inherit;
 }

@@ -3,8 +3,13 @@ const nextConfig = {
   reactCompiler: true,
 
   images: {
-    domains: ["hostedsitedemo.com"]
-  }
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "hostedsitedemo.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
