@@ -1,7 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
-export const fetchVideoPosts = createAsyncThunk("Video/fetchPosts", async () => {
+export const fetchVideoPosts = createAsyncThunk("Video/fetchPosts", async (_, { getState }) => {
+  const { Video } = getState();
+
+  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
+  if (Video.loaded) {
+    return Video.posts;
+  }
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/video?_embed&per_page=60`);
 
   if (!res.ok) {
@@ -17,6 +24,7 @@ const VideoSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    loaded: false, // 👈 IMPORTANT
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -28,6 +36,7 @@ const VideoSlice = createSlice({
       .addCase(fetchVideoPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+        state.loaded = true; // 👈 mark as fetched
       })
       .addCase(fetchVideoPosts.rejected, (state, action) => {
         state.loading = false;

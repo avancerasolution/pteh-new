@@ -11,6 +11,7 @@ import gitFormReducer from "./slices/GitFormSlice";
 import PrivacyReducer from "./slices/PrivacySlice";
 import DataPageReducer from "./slices/DataPageSlice";
 import dataReducer from "./slices/DataSlice";
+import FutureReducer from "./slices/FutureSlice";
 
 export const store = configureStore({
   reducer: {
@@ -26,5 +27,6 @@ export const store = configureStore({
     Privacy: PrivacyReducer,
     DataPage: DataPageReducer,
     data: dataReducer,
+    Future: FutureReducer,
   },
 });

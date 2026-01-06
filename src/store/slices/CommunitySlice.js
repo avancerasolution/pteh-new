@@ -1,7 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
-export const fetchCommunityPosts = createAsyncThunk("Community/fetchPosts", async () => {
+export const fetchCommunityPosts = createAsyncThunk("Community/fetchPosts", async (_, { getState }) => {
+  const { Community } = getState();
+
+  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
+  if (Community.loaded) {
+    return Community.posts;
+  }
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/community-partner?_embed&per_page=100`);
 
   if (!res.ok) {
@@ -17,6 +24,7 @@ const CommunitySlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    loaded: false, // 👈 IMPORTANT
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -28,6 +36,7 @@ const CommunitySlice = createSlice({
       .addCase(fetchCommunityPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+        state.loaded = true; // 👈 mark as fetched
       })
       .addCase(fetchCommunityPosts.rejected, (state, action) => {
         state.loading = false;
