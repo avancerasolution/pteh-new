@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   fetchPillars,
+  fetchPillarPosts,
   selectPillars,
   selectPillarsLoading,
   selectActivePillar,
@@ -14,7 +15,6 @@ import {
   selectPillarTotalPages,
 } from "@/store/slices/pillarSlice";
 
-import AnimatedMidHeading from "../Reuseable/AnimatedMidHeading";
 import { rowAnim } from "@/lib/Animation";
 import GlobalLoader from "@/components/Global/GlobalLoader";
 import PillarTable from "./PillarTable";
@@ -30,13 +30,16 @@ export default function Pillars() {
 
   const tableRef = useRef(null);
 
-  /* 🔹 INITIAL LOAD */
+  /* ===== INITIAL LOAD ===== */
   useEffect(() => {
     dispatch(fetchPillars({ page: 1 }));
   }, [dispatch]);
 
+  /* ===== CLICK → LAZY LOAD POSTS ===== */
   const handleView = (pillar) => {
-    dispatch(setActivePillar(pillar));
+    dispatch(setActivePillar({ ...pillar, posts: [] }));
+    dispatch(fetchPillarPosts(pillar.id));
+
     setTimeout(() => {
       tableRef.current?.scrollIntoView({
         behavior: "smooth",
@@ -52,7 +55,7 @@ export default function Pillars() {
   return (
     <Fragment>
       <div className="container-fluid pillars-container">
-        <div className="container ">
+        <div className="container">
           <div className="row">
             <div className="col-sm-12">
               <h2>
@@ -60,6 +63,7 @@ export default function Pillars() {
                 <br /> the progress
               </h2>
             </div>
+
             {pillars.map((pillar) => (
               <div className="col-sm-4 mb-5" key={pillar.id}>
                 <motion.div
@@ -68,7 +72,8 @@ export default function Pillars() {
                   whileInView="show"
                   viewport={{ once: false, amount: 0.3 }}
                 >
-                  <h4>{pillar.description} </h4>
+                  <h4>{pillar.description}</h4>
+
                   <motion.button
                     whileHover={{ scale: 0.95 }}
                     className="taranparent-btn"
@@ -80,14 +85,14 @@ export default function Pillars() {
               </div>
             ))}
 
-            {/* 🔹 LOADER (Load More ke waqt) */}
+            {/* LOAD MORE LOADER */}
             {loading && (
               <div className="col-sm-12 text-center my-4">
                 <GlobalLoader />
               </div>
             )}
 
-            {/* 🔹 LOAD MORE BUTTON */}
+            {/* LOAD MORE BUTTON */}
             {!loading && page < totalPages && (
               <div className="col-sm-12 text-center mt-4">
                 <button className="yellow-btn" onClick={loadMore}>
@@ -96,8 +101,10 @@ export default function Pillars() {
               </div>
             )}
           </div>
+        </div>
 
-          {/* 🔻 TABLE SECTION */}
+        <div className="row teblerow">
+          {/* TABLE SECTION */}
           <div ref={tableRef}>
             <AnimatePresence>{activePillar && <PillarTable pillar={activePillar} />}</AnimatePresence>
           </div>

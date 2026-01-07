@@ -581,7 +581,9 @@ img.powered {
 .acknowledgements .default-header .menu-btn img,
 .privacy-policy .default-header .menu-btn img,
 .our-data .default-header .menu-btn img,
-.future-state .default-header .menu-btn img {
+.future-state .default-header .menu-btn img,
+.priorities .default-header .menu-btn img,
+.dashboard .default-header .menu-btn img {
   filter: brightness(9.5);
 }
 .privacy {
@@ -966,12 +968,13 @@ ul.social-links {
   font-size: var(--text-xl);
 }
 .pillars-container .row {
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .pillars-container .col-sm-4.mb-5 {
   background: linear-gradient(270deg, rgba(67, 106, 112, 0.8) 0%, #436a70 100%) !important;
   padding: 3%;
-  width: 32%;
+  width: 31.3%;
+  margin: 0 1%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1007,3 +1010,198 @@ ul.social-links {
   color: #000;
   padding-bottom: 2%;
 }
+
+/* dashboardtable */
+.priorities .ethos-wrap {
+  overflow-x: auto;
+}
+
+/* 🔥 ONLY ADD THIS */
+.priorities .ethos-table {
+  width: 120%;
+  border-collapse: collapse;
+  font-size: var(--text-table);
+  table-layout: fixed; /* ⭐ equal column widths */
+}
+
+/* 🔥 ONLY ADD THIS */
+.priorities .ethos-table td {
+  width: 12%; /* ⭐ all columns same size */
+  word-break: break-word;
+  white-space: normal;
+  font-size: var(--text-table);
+  text-align: center;
+  font-family: "Proxima Nova";
+}
+.priorities .ethos-table th {
+  width: 12%; /* ⭐ all columns same size */
+  word-break: break-word;
+  white-space: normal;
+  font-size: var(--text-sm);
+  text-align: center !important;
+  font-family: "Proxima Nova";
+}
+
+.priorities .ethos-table th {
+  background: #4f6f73;
+  color: #fff;
+  padding: 18px;
+  text-align: left;
+}
+
+.priorities .ethos-table td {
+  border: 1px solid #ddd;
+  padding: 20px;
+  vertical-align: middle;
+}
+
+.center {
+  text-align: center;
+}
+
+/* reference column */
+.priorities .ref-cell {
+  background: #4f6f73;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* status base */
+.priorities .status-cell {
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* status colors */
+.status-not-started {
+  background: #b12c4a;
+}
+
+.status-completed {
+  background: #6a9a3c;
+}
+
+.status-in-progress {
+  background: #86cfc9;
+}
+
+.status-blocked {
+  background: #f47c20;
+}
+.status-stalled {
+  background: #929292;
+}
+.priorities td.no-data-cell {
+  text-align: center;
+  font-size: var(--h3);
+  font-weight: 600;
+  color: #000;
+}
+.tableheading {
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.tableheading h2,
+.tableheading p {
+  text-align: left;
+}
+.tableheading p {
+  font-size: var(--text-lg);
+}
+.col-sm-11.pillar-table {
+  width: 96%;
+  margin: auto;
+  margin-right: 0;
+}
+
+.stats .col-sm-2 {
+  width: 20%;
+}
+.ant-progress-circle {
+  background: transparent;
+}
+
+.ant-progress-text {
+  line-height: 1.2;
+}
+/* ===============================
+   STATS GRID FIX
+================================ */
+
+/* col-sm-2 ko square banana */
+.stats .col-sm-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* ant progress full size */
+.stats .col-sm-2 .ant-progress,
+.stats .col-sm-2 .ant-progress-body {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ant svg body */
+.stats .col-sm-2 .ant-progress-inner,
+.stats .col-sm-2 .ant-progress-circle,
+.stats .col-sm-2 svg {
+  width: 100% !important;
+  height: 100% !important;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===============================
+   STATUS CIRCLE WRAPPER
+================================ */
+.status-circle-wrap {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* remove default ant trail */
+.status-circle-wrap .ant-progress-circle-trail {
+  stroke: transparent !important;
+}
+
+/* ===============================
+   CENTER TEXT
+================================ */
+.status-inner-text {
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  pointer-events: none;
+}
+
+.status-label {
+  font-size: var(--h5);
+  opacity: 0.9;
+  font-family: "Proxima Nova";
+}
+
+.status-name {
+  font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 600;
+  font-size: var(--text-xl);
+  font-family: "Proxima Nova";
+}
+
+.status-count {
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 700;
+  margin-top: 4px;
+  font-size: var(--h3);
+  font-family: "Proxima Nova";
+}
+
+/* ===============================
+   BIG CIRCLE
+================================ */

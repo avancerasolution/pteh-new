@@ -15,6 +15,8 @@ import FutureReducer from "./slices/FutureSlice";
 import FutureEthosReducer from "./slices/futureEthosSlice";
 import PriorityPageReducer from "./slices/PriorityPageSlice";
 import pillarReducer from "./slices/pillarSlice";
+import DashboardPageReducer from "./slices/DashboardPageSlice";
+import pillarStatsReducer from "./slices/pillarStatsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -34,5 +36,7 @@ export const store = configureStore({
     FutureEthos: FutureEthosReducer,
     PriorityPage: PriorityPageReducer,
     pillars: pillarReducer,
+    DashboardPage: DashboardPageReducer,
+    pillarStats: pillarStatsReducer,
   },
 });
