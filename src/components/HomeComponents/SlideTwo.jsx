@@ -36,7 +36,7 @@ export default function SlideTwo({ isActive }) {
                 initial="hidden"
                 animate="show"
               >
-                <Link href="/get-involved">
+                <Link href="/future-state">
                   <Image src={future} alt="Future State" width={300} height={100} />
                 </Link>
               </motion.div>
@@ -71,7 +71,7 @@ export default function SlideTwo({ isActive }) {
                 initial="hidden"
                 animate="show"
               >
-                <Link href="/get-involved">
+                <Link href="/priorities">
                   <Image src={priority} alt="Priorities" width={300} height={100} />
                 </Link>
               </motion.div>
@@ -104,7 +104,7 @@ export default function SlideTwo({ isActive }) {
             </div>
           </div>
 
-          <Image src={powered} width={400} height={100} className="powered" alt="powered" />
+          {/* <Image src={powered} width={400} height={100} className="powered" alt="powered" /> */}
         </motion.div>
       )}
     </AnimatePresence>

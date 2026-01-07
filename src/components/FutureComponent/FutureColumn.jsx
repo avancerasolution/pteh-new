@@ -58,12 +58,14 @@ export default function FutureColumn() {
           <FutureTOC toc={toc} />
         </div>
         <div className="col-sm-9">
-          <FutureContent html={html1} />
+          <div className="r-pad">
+            <FutureContent html={html1} />
+          </div>
 
-          <div className="my-5">
+          <div className="ethos-wrap">
             <FutureETHOSTable />
           </div>
-          <div className="img-auto">
+          <div className="img-auto r-pad">
             <FutureContent html={html2} />
           </div>
         </div>

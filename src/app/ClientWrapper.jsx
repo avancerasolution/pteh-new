@@ -1,11 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import Header from "@/components/Global/Header";
-import Footer from "@/components/Global/Footer";
 import Loader from "@/components/Global/Loader";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Lenis from "lenis";
 
@@ -30,7 +27,7 @@ export default function ClientWrapper({ children }) {
   //   const lenis = new Lenis({
   //     duration: 1.4,
   //     smooth: true,
-  //     smoothTouch: false
+  //     smoothTouch: false,
   //   });
 
   //   function raf(time) {

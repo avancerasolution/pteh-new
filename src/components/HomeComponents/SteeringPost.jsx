@@ -22,6 +22,8 @@ export default function SteeringPost({ isActive }) {
   const [activePost, setActivePost] = useState(null);
   const [show, setShow] = useState(false);
 
+  console.log(posts, "posts");
+
   useEffect(() => {
     dispatch(fetchSteeringPosts());
   }, [dispatch]);
@@ -37,7 +39,7 @@ export default function SteeringPost({ isActive }) {
   const back = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1367.png";
 
   // 🔥 SAFE OPEN HANDLER (animation reset guaranteed)
-  const openCanvas = post => {
+  const openCanvas = (post) => {
     setActivePost(post);
     setTimeout(() => setShow(true), 50);
   };
@@ -53,14 +55,21 @@ export default function SteeringPost({ isActive }) {
         breakpoints={{
           0: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
-          1200: { slidesPerView: 5 }
-        }}>
-        {posts.map(post => {
+          1200: { slidesPerView: 5 },
+        }}
+      >
+        {posts.map((post) => {
           const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.jpg";
 
           return (
             <SwiperSlide key={post.id}>
-              <motion.div className="steering-card" variants={cardContainer} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.4 }}>
+              <motion.div
+                className="steering-card"
+                variants={cardContainer}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.4 }}
+              >
                 {/* IMAGE */}
                 <motion.div variants={cardItem}>
                   <Image src={image} alt={post.title.rendered} width={400} height={400} />
@@ -70,7 +79,7 @@ export default function SteeringPost({ isActive }) {
                 <motion.h5
                   variants={cardItem}
                   dangerouslySetInnerHTML={{
-                    __html: post.title.rendered
+                    __html: post.title.rendered,
                   }}
                 />
 
@@ -80,7 +89,12 @@ export default function SteeringPost({ isActive }) {
                 </motion.p>
 
                 {/* BUTTON */}
-                <motion.button variants={cardItem} className="white-btn" whileHover={{ scale: 0.95 }} onClick={() => openCanvas(post)}>
+                <motion.button
+                  variants={cardItem}
+                  className="white-btn"
+                  whileHover={{ scale: 0.95 }}
+                  onClick={() => openCanvas(post)}
+                >
                   Explore more →
                 </motion.button>
               </motion.div>
@@ -90,28 +104,57 @@ export default function SteeringPost({ isActive }) {
       </Swiper>
 
       {/* ===================== OFFCANVAS ===================== */}
-      <Offcanvas show={show} onHide={() => setShow(false)} placement="end" className="full-offcanvas" backdrop scroll={false}>
+      <Offcanvas
+        show={show}
+        onHide={() => setShow(false)}
+        placement="end"
+        className="full-offcanvas"
+        backdrop
+        scroll={false}
+      >
         <Offcanvas.Body>
           {activePost && (
-            <motion.div className="container" variants={cardContainer} initial="hidden" animate={show ? "show" : "hidden"}>
+            <motion.div
+              className="container"
+              variants={cardContainer}
+              initial="hidden"
+              animate={show ? "show" : "hidden"}
+            >
               <div className="row">
                 {/* IMAGE */}
-                <motion.div className="col-sm-6" variants={rowAnim} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }}>
-                  <Image src={activePost._embedded?.["wp:featuredmedia"]?.[0]?.source_url} alt={activePost.title.rendered} width={500} height={500} />
+                <motion.div
+                  className="col-sm-6"
+                  variants={rowAnim}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: false, amount: 0.3 }}
+                >
+                  <Image
+                    src={activePost._embedded?.["wp:featuredmedia"]?.[0]?.source_url}
+                    alt={activePost.title.rendered}
+                    width={500}
+                    height={500}
+                  />
                 </motion.div>
 
                 {/* CONTENT */}
-                <motion.div className="col-sm-6" variants={rowAnim} initial="hidden" whileInView="show" viewport={{ once: false, amount: 0.3 }}>
+                <motion.div
+                  className="col-sm-6"
+                  variants={rowAnim}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: false, amount: 0.3 }}
+                >
                   <h3
                     dangerouslySetInnerHTML={{
-                      __html: activePost.title.rendered
+                      __html: activePost.title.rendered,
                     }}
                   />
                   <h6>{activePost.acf?.designation}</h6>
 
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: activePost.content.rendered
+                      __html: activePost.content.rendered,
                     }}
                   />
                 </motion.div>

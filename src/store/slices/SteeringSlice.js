@@ -9,7 +9,7 @@ export const fetchSteeringPosts = createAsyncThunk("steering/fetchPosts", async 
     return steering.posts;
   }
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/steering-commitie?_embed&per_page=200`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/steering-commitie?_embed&per_page=100`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch steering posts");
