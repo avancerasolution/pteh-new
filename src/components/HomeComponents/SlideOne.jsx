@@ -47,7 +47,7 @@ export default function SlideOne({ isActive }) {
                 animate="show"
                 whileHover={{ scale: 0.95 }}
               >
-                <Link href="/about-us" className="yellow-btn">
+                <Link href="/execytive-summary" className="yellow-btn">
                   What is the Plan? →
                 </Link>
               </motion.div>
@@ -61,7 +61,7 @@ export default function SlideOne({ isActive }) {
                 animate="show"
                 whileHover={{ scale: 0.95 }}
               >
-                <Link href="/about-us" className="yellow-btn">
+                <Link href="/dashboard" className="yellow-btn">
                   Check the Status →
                 </Link>
               </motion.div>
