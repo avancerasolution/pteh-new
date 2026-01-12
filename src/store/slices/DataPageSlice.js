@@ -1,7 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
-export const fetchDataPagePosts = createAsyncThunk("DataPage/fetchPosts", async () => {
+export const fetchDataPagePosts = createAsyncThunk("DataPage/fetchPosts", async (_, { getState }) => {
+  const { DataPage } = getState();
+
+  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
+  if (DataPage.loaded) {
+    return DataPage.posts;
+  }
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/our-data?_embed&per_page=1`);
 
   if (!res.ok) {
@@ -17,6 +24,7 @@ const DataPageSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    loaded: false, // 👈 IMPORTANT
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -28,6 +36,7 @@ const DataPageSlice = createSlice({
       .addCase(fetchDataPagePosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+        state.loaded = true; // 👈 mark as fetched
       })
       .addCase(fetchDataPagePosts.rejected, (state, action) => {
         state.loading = false;

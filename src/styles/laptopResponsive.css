@@ -1,0 +1,178 @@
+@media screen and (max-width: 1600px) {
+  .container-fluid.the-background .container-fluid.verticalSlides.thirdslide br {
+    display: none;
+  }
+  .slide-four img {
+    height: 700px;
+  }
+  .gallery-canvas {
+    transform: scale(0.9);
+  }
+  img.gallery-img.img-1,
+  img.gallery-img.img-2 {
+    width: 18% !important;
+    top: 14% !important;
+  }
+  img.gallery-img.img-3 {
+    width: 21% !important;
+    top: 14% !important;
+  }
+  img.gallery-img.img-7 {
+    width: 20% !important;
+  }
+  img.gallery-img.img-13,
+  img.gallery-img.img-8,
+  img.gallery-img.img-9 {
+    width: 15% !important;
+    top: 56% !important;
+  }
+  img.gallery-img.img-4 {
+    width: 16% !important;
+  }
+  img.gallery-img.img-5 {
+    width: 15% !important;
+    top: 61% !important;
+  }
+  img.gallery-img.img-10,
+  img.gallery-img.img-11,
+  img.gallery-img.img-12 {
+    width: 15% !important;
+    top: 72% !important;
+  }
+  .phonecard img {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  img.gallery-img.img-13,
+  img.gallery-img.img-8,
+  img.gallery-img.img-9 {
+    width: 15% !important;
+    top: 52% !important;
+  }
+  img.gallery-img.img-10,
+  img.gallery-img.img-11,
+  img.gallery-img.img-12 {
+    width: 15% !important;
+    top: 67% !important;
+  }
+  .communitycanvas .col-sm-6 img {
+    height: 450px;
+  }
+  .chart-wrapper {
+    width: 100%;
+    height: 480px;
+    position: relative;
+  }
+  .phonecard img {
+    width: 90px;
+    height: 90px;
+  }
+  .container.verticalSlides.visionHouse a img {
+    width: 70%;
+  }
+  .future {
+    top: 22%;
+    right: -38%;
+  }
+  .data {
+    bottom: 0%;
+    right: -28%;
+  }
+  a.yellow-btn {
+    padding: 15px 20px;
+  }
+}
+@media screen and (max-width: 1370px) {
+  a.yellow-btn {
+    padding: 10px 20px;
+  }
+  .slide-four img {
+    height: 440px;
+    object-fit: cover;
+  }
+  .gallery-wrapper {
+    height: 700px;
+  }
+  .chart-wrapper {
+    width: 100%;
+    height: 400px;
+    position: relative;
+  }
+  .phonecard img {
+    width: 80px;
+    height: 80px;
+  }
+  .container.verticalSlides.visionHouse a img {
+    width: 70%;
+  }
+  .future {
+    top: 22%;
+    right: -38%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .priority {
+    top: -17%;
+    left: -100%;
+  }
+  .container.verticalSlides.visionHouse a img {
+    width: 70%;
+  }
+  .future {
+    top: 20%;
+    right: -40%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .col-sm-6.mainmenu img {
+    width: 17%;
+  }
+  .container-fluid.home .swiper .col-sm-6.tab-slide {
+    width: 100%;
+  }
+  .tab-width {
+    width: 30%;
+  }
+  .container.verticalSlides.visionHouse a img {
+    width: 100%;
+  }
+  .col-sm-6.mainmenu button.menu-btn img {
+    width: 30px;
+  }
+  .future {
+    top: 20%;
+    right: -20%;
+  }
+  .data {
+    bottom: 0%;
+    right: -22%;
+  }
+  .menu-wrapper {
+    padding: 10% 0% 0;
+  }
+  .menu-col a {
+    padding: 9px 0;
+  }
+  html body .top-offcanvas {
+    height: 33vh !important;
+  }
+  .row.background-text .col-sm-8 {
+    width: 100%;
+  }
+  .thirdslide .col-sm-4 {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  .thirdslide .col-sm-4 img {
+    width: 100%;
+    height: 340px;
+  }
+  .thirdslide .col-sm-5 {
+    flex: none;
+    width: 75%;
+  }
+}

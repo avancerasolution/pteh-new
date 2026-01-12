@@ -45,9 +45,7 @@ export default function VerticalSwiper({ swiperRef, setActiveSlide, activeSlide 
         <SlideTwo isActive={activeSlide === 1} />
       </SwiperSlide>
 
-      <SwiperSlide>
-        <SlideThree isActive={activeSlide === 2} />
-      </SwiperSlide>
+      {/* <SwiperSlide> <SlideThree isActive={activeSlide === 2} /> </SwiperSlide> */}
     </Swiper>
   );
 }

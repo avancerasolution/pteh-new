@@ -1,7 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
-export const fetchExecutivePosts = createAsyncThunk("Executive/fetchPosts", async () => {
+export const fetchExecutivePosts = createAsyncThunk("Executive/fetchPosts", async (_, { getState }) => {
+  const { Executive } = getState();
+
+  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
+  if (Executive.loaded) {
+    return Executive.posts;
+  }
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/executive-summary?_embed&per_page=1`);
 
   if (!res.ok) {
@@ -17,6 +24,7 @@ const ExecutiveSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    loaded: false, // 👈 IMPORTANT
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -28,6 +36,7 @@ const ExecutiveSlice = createSlice({
       .addCase(fetchExecutivePosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+        state.loaded = true; // 👈 mark as fetched
       })
       .addCase(fetchExecutivePosts.rejected, (state, action) => {
         state.loading = false;

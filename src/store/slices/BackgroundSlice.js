@@ -1,7 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
-export const fetchBackgroundPosts = createAsyncThunk("Background/fetchPosts", async () => {
+export const fetchBackgroundPosts = createAsyncThunk("Background/fetchPosts", async (_, { getState }) => {
+  const { Background } = getState();
+
+  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
+  if (Background.loaded) {
+    return Background.posts;
+  }
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/background?_embed&per_page=1`);
 
   if (!res.ok) {
@@ -17,6 +24,7 @@ const BackgroundSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    loaded: false, // 👈 IMPORTANT
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -28,6 +36,7 @@ const BackgroundSlice = createSlice({
       .addCase(fetchBackgroundPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+        state.loaded = true; // 👈 mark as fetched
       })
       .addCase(fetchBackgroundPosts.rejected, (state, action) => {
         state.loading = false;

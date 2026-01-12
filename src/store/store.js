@@ -11,6 +11,12 @@ import gitFormReducer from "./slices/GitFormSlice";
 import PrivacyReducer from "./slices/PrivacySlice";
 import DataPageReducer from "./slices/DataPageSlice";
 import dataReducer from "./slices/DataSlice";
+import FutureReducer from "./slices/FutureSlice";
+import FutureEthosReducer from "./slices/futureEthosSlice";
+import PriorityPageReducer from "./slices/PriorityPageSlice";
+import pillarReducer from "./slices/pillarSlice";
+import DashboardPageReducer from "./slices/DashboardPageSlice";
+import pillarStatsReducer from "./slices/pillarStatsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -26,5 +32,11 @@ export const store = configureStore({
     Privacy: PrivacyReducer,
     DataPage: DataPageReducer,
     data: dataReducer,
+    Future: FutureReducer,
+    FutureEthos: FutureEthosReducer,
+    PriorityPage: PriorityPageReducer,
+    pillars: pillarReducer,
+    DashboardPage: DashboardPageReducer,
+    pillarStats: pillarStatsReducer,
   },
 });

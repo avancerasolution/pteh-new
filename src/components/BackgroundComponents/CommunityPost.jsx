@@ -36,7 +36,7 @@ export default function CommunityPost() {
 
   if (!posts?.length) return null;
 
-  const closeImg = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1367.png";
+  const closeImg = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2026/01/Frame-1367.png";
 
   const openCanvas = (post) => {
     setActivePost(post);

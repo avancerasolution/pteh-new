@@ -90,36 +90,32 @@ export default function BackGroundEight({ isActive }) {
         >
           {/* HEADING */}
           <div className="row background-text mb-5">
-            <div className="col-sm-12 text-center">
+            <div className="col-sm-12 text-center video-heading">
               <AnimatedMidHeading key={isActive} text={slideSevenHeading} className="hero-title" isActive={isActive} />
-            </div>
-          </div>
+              <div className="col-sm-12">
+                <Swiper
+                  modules={[Pagination]}
+                  pagination={{ clickable: true }}
+                  spaceBetween={24}
+                  slidesPerView={3}
+                  breakpoints={{
+                    0: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 },
+                    1200: { slidesPerView: 3 },
+                  }}
+                  className="video-swiper"
+                >
+                  {posts.map((post) => {
+                    const embedUrl = getYouTubeEmbed(post?.acf?.youtube_video_url_here);
 
-          {/* VIDEO SLIDER */}
-          <div className="row">
-            <div className="col-sm-12">
-              <Swiper
-                modules={[Pagination]}
-                pagination={{ clickable: true }}
-                spaceBetween={24}
-                slidesPerView={3}
-                breakpoints={{
-                  0: { slidesPerView: 1 },
-                  768: { slidesPerView: 2 },
-                  1200: { slidesPerView: 3 },
-                }}
-                className="video-swiper"
-              >
-                {posts.map((post) => {
-                  const embedUrl = getYouTubeEmbed(post?.acf?.youtube_video_url_here);
-
-                  return (
-                    <SwiperSlide key={post.id}>
-                      <VideoSlide embedUrl={embedUrl} title={post.title.rendered} />
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
+                    return (
+                      <SwiperSlide key={post.id}>
+                        <VideoSlide embedUrl={embedUrl} title={post.title.rendered} />
+                      </SwiperSlide>
+                    );
+                  })}
+                </Swiper>
+              </div>
             </div>
           </div>
         </motion.div>

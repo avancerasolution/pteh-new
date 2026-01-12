@@ -1,7 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
-export const fetchGitPosts = createAsyncThunk("Git/fetchPosts", async () => {
+export const fetchGitPosts = createAsyncThunk("Git/fetchPosts", async (_, { getState }) => {
+  const { Git } = getState();
+
+  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
+  if (Git.loaded) {
+    return Git.posts;
+  }
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/get-in-touch?_embed&per_page=1`);
 
   if (!res.ok) {
@@ -17,6 +24,7 @@ const GitSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    loaded: false, // 👈 IMPORTANT
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -28,6 +36,7 @@ const GitSlice = createSlice({
       .addCase(fetchGitPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+        state.loaded = true; // 👈 mark as fetched
       })
       .addCase(fetchGitPosts.rejected, (state, action) => {
         state.loading = false;

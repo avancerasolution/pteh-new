@@ -1,7 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
-export const fetchPrivacyPosts = createAsyncThunk("Privacy/fetchPosts", async () => {
+export const fetchPrivacyPosts = createAsyncThunk("Privacy/fetchPosts", async (_, { getState }) => {
+  const { Privacy } = getState();
+
+  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
+  if (Privacy.loaded) {
+    return Privacy.posts;
+  }
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/privacy-policy?_embed&per_page=1`);
 
   if (!res.ok) {
@@ -17,6 +24,7 @@ const PrivacySlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    loaded: false, // 👈 IMPORTANT
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -28,6 +36,7 @@ const PrivacySlice = createSlice({
       .addCase(fetchPrivacyPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+        state.loaded = true; // 👈 mark as fetched
       })
       .addCase(fetchPrivacyPosts.rejected, (state, action) => {
         state.loading = false;

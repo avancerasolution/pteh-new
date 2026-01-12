@@ -1,7 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
-export const fetchDataPosts = createAsyncThunk("data/fetchPosts", async () => {
+export const fetchDataPosts = createAsyncThunk("data/fetchPosts", async (_, { getState }) => {
+  const { data } = getState();
+
+  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
+  if (data.loaded) {
+    return data.posts;
+  }
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/data?_embed&per_page=100`);
 
   if (!res.ok) {
@@ -17,6 +24,7 @@ const dataSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    loaded: false, // 👈 IMPORTANT
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -28,6 +36,7 @@ const dataSlice = createSlice({
       .addCase(fetchDataPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+        state.loaded = true; // 👈 mark as fetched
       })
       .addCase(fetchDataPosts.rejected, (state, action) => {
         state.loading = false;

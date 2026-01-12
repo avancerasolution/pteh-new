@@ -14,6 +14,7 @@ import GitDonate from "./GitDonate";
 import GitVolunter from "./GitVolunter";
 import GitStay from "./GitStay";
 import GitFeedback from "./GitFeedback";
+import GlobalLoader from "../Global/GlobalLoader";
 
 export default function GitClient() {
   const swiperRef = useRef(null);
@@ -42,28 +43,76 @@ export default function GitClient() {
 
       {!loading && (
         <>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <GitBanner />
           </Suspense>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <GitDesc posts={posts} loading={loading} />
           </Suspense>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <GitContact posts={posts} loading={loading} />
           </Suspense>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <GitSupport posts={posts} loading={loading} />
           </Suspense>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <GitDonate posts={posts} loading={loading} />
           </Suspense>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <GitVolunter posts={posts} loading={loading} />
           </Suspense>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <GitStay posts={posts} loading={loading} />
           </Suspense>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <GitFeedback posts={posts} loading={loading} />
           </Suspense>
         </>

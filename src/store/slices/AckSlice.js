@@ -1,7 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
-export const fetchAckPosts = createAsyncThunk("Ack/fetchPosts", async () => {
+export const fetchAckPosts = createAsyncThunk("Ack/fetchPosts", async (_, { getState }) => {
+  const { Ack } = getState();
+
+  // 🛑 Stop duplicate API calls
+  if (Ack.loaded) {
+    return Ack.posts;
+  }
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/acknowledgements?_embed&per_page=1`);
 
   if (!res.ok) {
@@ -17,6 +24,7 @@ const AckSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    loaded: false, // 👈 IMPORTANT
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -28,6 +36,7 @@ const AckSlice = createSlice({
       .addCase(fetchAckPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+        state.loaded = true; // 👈 mark as fetched
       })
       .addCase(fetchAckPosts.rejected, (state, action) => {
         state.loading = false;

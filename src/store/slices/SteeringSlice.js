@@ -1,8 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 /* 🔹 Async Thunk */
-export const fetchSteeringPosts = createAsyncThunk("steering/fetchPosts", async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/steering-commitie?_embed&per_page=200`);
+export const fetchSteeringPosts = createAsyncThunk("steering/fetchPosts", async (_, { getState }) => {
+  const { steering } = getState();
+
+  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
+  if (steering.loaded) {
+    return steering.posts;
+  }
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/steering-commitie?_embed&per_page=100`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch steering posts");
@@ -17,6 +24,7 @@ const steeringSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
+    loaded: false, // 👈 IMPORTANT
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -28,6 +36,7 @@ const steeringSlice = createSlice({
       .addCase(fetchSteeringPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
+        state.loaded = true; // 👈 mark as fetched
       })
       .addCase(fetchSteeringPosts.rejected, (state, action) => {
         state.loading = false;
