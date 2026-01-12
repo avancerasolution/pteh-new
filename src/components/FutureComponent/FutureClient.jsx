@@ -36,7 +36,6 @@ export default function FutureClient() {
           }
         >
           <Banner />
-          {/* <ExecutiveColumns /> */}
           <FutureColumn />
         </Suspense>
       )}

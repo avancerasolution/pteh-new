@@ -126,7 +126,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   .col-sm-6.mainmenu img {
     width: 17%;
   }
@@ -175,4 +175,4 @@
     flex: none;
     width: 75%;
   }
-}
+} */
