@@ -84,7 +84,7 @@ export default function SlideTwo({ isActive }) {
                 initial="hidden"
                 animate="show"
               >
-                <Link href="/get-involved">
+                <Link href="/the-background?slide=9">
                   <Image src={action} alt="Actions" width={300} height={100} />
                 </Link>
               </motion.div>
