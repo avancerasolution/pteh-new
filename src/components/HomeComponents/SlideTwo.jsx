@@ -9,7 +9,7 @@ export default function SlideTwo({ isActive }) {
   const future = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1357.png";
   const data = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1358.png";
   const priority = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1355.png";
-  const action = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2026/01/CM.jpeg";
+  const action = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2026/01/TP.png";
   const dashboard = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1359.png";
   const visionHouse = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/visionHome.png";
   const powered = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Group-1000002295.png";
