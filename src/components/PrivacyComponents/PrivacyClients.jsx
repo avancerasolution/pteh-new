@@ -7,6 +7,7 @@ import PrivacyBanner from "./PrivacyBanner";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPrivacyPosts, selectPrivacyPosts } from "@/store/slices/PrivacySlice";
 import PrivacyContent from "./PrivacyContent";
+import GlobalLoader from "../Global/GlobalLoader";
 
 export default function PrivacyClients() {
   const swiperRef = useRef(null);
@@ -35,10 +36,22 @@ export default function PrivacyClients() {
 
       {!loading && (
         <>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <PrivacyBanner />
           </Suspense>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <PrivacyContent posts={posts} loading={loading} />
           </Suspense>
         </>

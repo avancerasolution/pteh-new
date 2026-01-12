@@ -17,7 +17,7 @@ import { fetchPillarStats, selectPillarStats, selectPillarStatsTotal } from "@/s
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 /* ===============================
-   STATUS CONFIG (COLORS SOURCE)
+   STATUS CONFIG
 ================================ */
 const STATUS_CONFIG = [
   { label: "Not started", color: "#b12c4a" },
@@ -37,7 +37,7 @@ export default function Stats() {
   }, [dispatch]);
 
   /* ===============================
-     CHART.JS PIE DATA
+     PIE CHART DATA
   ================================ */
   const pieChartData = {
     labels: STATUS_CONFIG.map((s) => s.label),
@@ -46,13 +46,13 @@ export default function Stats() {
         data: STATUS_CONFIG.map((s) => counts?.[s.label] || 0),
         backgroundColor: STATUS_CONFIG.map((s) => s.color),
         hoverBackgroundColor: STATUS_CONFIG.map((s) => s.color),
-        borderWidth: 1,
+        borderWidth: 0,
       },
     ],
   };
 
   /* ===============================
-     CHART.JS OPTIONS
+     PIE CHART OPTIONS (FIXED)
   ================================ */
   const pieChartOptions = {
     responsive: true,
@@ -63,8 +63,13 @@ export default function Stats() {
         labels: {
           color: "#333",
           font: {
-            size: 14,
+            size: 18, // 👈 LABEL SIZE (increase/decrease as needed)
+            weight: "500",
           },
+          padding: 20, // 👈 SPACE between legend items
+          boxWidth: 16,
+          boxHeight: 16,
+          lineHeight: 28, // 👈 SPACE BELOW each label
         },
       },
       tooltip: {
@@ -102,7 +107,6 @@ export default function Stats() {
                 type="circle"
                 percent={100}
                 strokeWidth={8}
-                trailColor="transparent"
                 strokeColor="rgba(255,255,255,0.4)"
                 format={() => (
                   <div className="status-inner-text">
@@ -117,17 +121,15 @@ export default function Stats() {
         ))}
 
         {/* ===============================
-            PIE CHART (ONLY THIS CHANGED)
+            PIE CHART (100% RESPONSIVE)
         ================================ */}
-
         <motion.div
-          className="col-sm-12 mt-5 chartsss"
+          className="col-12 mt-5"
           initial={{ scale: 0.7, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          style={{ display: "flex", justifyContent: "center" }}
         >
-          <div style={{ width: "100%", maxWidth: "32%", margin: "0 auto" }}>
+          <div className="chart-wrapper">
             <ChartPie data={pieChartData} options={pieChartOptions} />
           </div>
         </motion.div>

@@ -50,7 +50,13 @@ export default function DashboardClinet() {
     <Fragment>
       <Header swiperRef={swiperRef} activeSlide={activeSlide} />
 
-      <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+      <Suspense
+        fallback={
+          <div className="text-center py-5">
+            <GlobalLoader />
+          </div>
+        }
+      >
         <BannerDashBoard Title={Title} />
         <DashboardText subTitle={subTitle} subText={subText} />
         <Stats />

@@ -91,3 +91,79 @@ b {
   font-size: var(--text-xl);
   line-height: inherit;
 }
+
+@media screen and (max-width: 1600px) {
+  :root {
+    /* --font-primary: "TestMetric", sans-serif; */
+    --h1: 72px;
+    --h2: 56px;
+    --h3: 42px;
+    --h4: 30px;
+    --h5: 24px;
+    --h6: 22px;
+    --text-xl: 18px;
+    --text-lg: 18px;
+    --text-md: 16px;
+    --text-sm: 14px;
+    --text-table: 12px;
+    --lh-heading: 1;
+    --lh-body: 1.4;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  :root {
+    /* --font-primary: "TestMetric", sans-serif; */
+    --h1: 66px;
+    --h2: 46px;
+    --h3: 40px;
+    --h4: 28px;
+    --h5: 21px;
+    --h6: 18px;
+    --text-xl: 14px;
+    --text-lg: 14px;
+    --text-md: 14px;
+    --text-sm: 14px;
+    --text-table: 12px;
+    --lh-heading: 1;
+    --lh-body: 1.4;
+  }
+}
+
+@media screen and (max-width: 1370px) {
+  :root {
+    /* --font-primary: "TestMetric", sans-serif; */
+    --h1: 56px;
+    --h2: 38px;
+    --h3: 36px;
+    --h4: 24px;
+    --h5: 20px;
+    --h6: 18px;
+    --text-xl: 13px;
+    --text-lg: 13px;
+    --text-md: 13px;
+    --text-sm: 13px;
+    --text-table: 12px;
+    --lh-heading: 1;
+    --lh-body: 1.4;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  :root {
+    /* --font-primary: "TestMetric", sans-serif; */
+    --h1: 52px;
+    --h2: 32px;
+    --h3: 26px;
+    --h4: 22px;
+    --h5: 20px;
+    --h6: 18px;
+    --text-xl: 13px;
+    --text-lg: 13px;
+    --text-md: 13px;
+    --text-sm: 13px;
+    --text-table: 12px;
+    --lh-heading: 1;
+    --lh-body: 1.4;
+  }
+}

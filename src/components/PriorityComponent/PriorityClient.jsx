@@ -50,7 +50,13 @@ export default function PriorityClient() {
     <Fragment>
       <Header swiperRef={swiperRef} activeSlide={activeSlide} />
 
-      <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+      <Suspense
+        fallback={
+          <div className="text-center py-5">
+            <GlobalLoader />
+          </div>
+        }
+      >
         <Banner Title={Title} />
         <VisionText subTitle={subTitle} subText={subText} />
         <Pillars />

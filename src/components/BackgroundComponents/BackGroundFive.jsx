@@ -10,9 +10,9 @@ import AnimatedMidHeading from "@/components/Reuseable/AnimatedMidHeading";
 import { useWpImage } from "@/hooks/useWpImage";
 
 /* ======================================
-   ✅ CHILD COMPONENT (HOOK SAFE)
+   CHILD COMPONENT
 ====================================== */
-function GalleryImage({ imageId, item }) {
+function GalleryImage({ imageId, item, index }) {
   const src = useWpImage(imageId);
 
   if (!src) return null;
@@ -20,7 +20,7 @@ function GalleryImage({ imageId, item }) {
   return (
     <motion.img
       src={src}
-      className="gallery-img"
+      className={`gallery-img img-${index + 1}`} // ✅ NUMBERED CLASS
       variants={galleryAnim[item.anim]}
       initial="hidden"
       animate="show"
@@ -43,19 +43,16 @@ function GalleryImage({ imageId, item }) {
 export default function BackGroundFive({ isActive }) {
   const dispatch = useDispatch();
 
-  // 🔹 REDUX (ALWAYS)
   const posts = useSelector(selectBackgroundPosts);
   const loading = useSelector(selectBackgroundLoading);
   const globalLoading = useSelector((state) => state.loader.loading);
 
   const post = posts?.[0];
 
-  // 🔹 FETCH
   useEffect(() => {
     dispatch(fetchBackgroundPosts());
   }, [dispatch]);
 
-  // 🔹 LOADERS
   if (loading) {
     return (
       <div className="container text-center py-5">
@@ -66,29 +63,28 @@ export default function BackGroundFive({ isActive }) {
 
   if (!post || globalLoading) return null;
 
-  // 🔹 SAFE DATA
   const heading = post?.acf?.slide_five_heading || "";
   const galleryIds = post?.acf?.slide_five_image_gallery || [];
 
-  // 🔹 LAYOUT
+  /* ===== GALLERY LAYOUT ===== */
   const galleryLayout = [
-    { i: 12, top: "10%", left: "16%", size: "auto", index: "99", anim: "left" },
-    { i: 11, top: "12%", left: "36%", size: "auto", index: "99", anim: "up" },
-    { i: 10, top: "13%", right: "23%", size: "auto", index: "99", anim: "right" },
+    { i: 12, top: "10%", left: "16%", size: "auto", index: 999, anim: "left" },
+    { i: 11, top: "12%", left: "36%", size: "auto", index: 999, anim: "up" },
+    { i: 10, top: "13%", right: "23%", size: "auto", index: 999, anim: "right" },
 
-    { i: 9, top: "40%", left: "13%", size: "auto", index: "99", anim: "down" },
-    { i: 8, top: "65%", left: "13%", size: "auto", index: "99", anim: "left" },
+    { i: 9, top: "40%", left: "13%", size: "auto", index: 999, anim: "down" },
+    { i: 8, top: "65%", left: "13%", size: "auto", index: 999, anim: "left" },
 
-    { i: 7, top: "25%", left: "20%", size: "50%", anim: "center" },
+    { i: 7, top: "25%", left: "20%", size: "50%", index: 1, anim: "center" },
 
-    { i: 6, top: "33%", right: "22%", size: "auto", anim: "right" },
-    { i: 5, top: "62%", right: "39%", size: "auto", anim: "down" },
+    { i: 6, top: "33%", right: "22%", size: "auto", index: 999, anim: "right" },
+    { i: 5, top: "62%", right: "39%", size: "auto", index: 999, anim: "down" },
 
-    { i: 4, top: "62%", left: "30%", size: "auto", anim: "left" },
-    { i: 3, top: "82%", left: "30%", size: "auto", anim: "up" },
-    { i: 2, top: "82%", left: "46%", size: "auto", anim: "down" },
-    { i: 1, top: "82%", right: "22%", size: "auto", anim: "up" },
-    { i: 0, top: "62%", right: "22%", size: "auto", anim: "right" },
+    { i: 4, top: "62%", left: "30%", size: "auto", index: 999, anim: "left" },
+    { i: 3, top: "82%", left: "30%", size: "auto", index: 999, anim: "up" },
+    { i: 2, top: "82%", left: "46%", size: "auto", index: 999, anim: "down" },
+    { i: 1, top: "82%", right: "22%", size: "auto", index: 999, anim: "up" },
+    { i: 0, top: "62%", right: "22%", size: "auto", index: 999, anim: "right" },
   ];
 
   return (
@@ -113,7 +109,12 @@ export default function BackGroundFive({ isActive }) {
               <motion.div className="col-sm-6" variants={fromLeft}>
                 <div className="gallery-wrapper">
                   {galleryLayout.map((item, idx) => (
-                    <GalleryImage key={idx} imageId={galleryIds[item.i]} item={item} />
+                    <GalleryImage
+                      key={idx}
+                      imageId={galleryIds[item.i]}
+                      item={item}
+                      index={idx} // ✅ INDEX PASS
+                    />
                   ))}
                 </div>
               </motion.div>

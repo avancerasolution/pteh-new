@@ -10,7 +10,7 @@ export default function SlideOne({ isActive }) {
   const title = "The Plan to end\n homelessness\nIn Bermuda";
 
   // ⭐ GLOBAL LOADER STATE
-  const loading = useSelector(state => state.loader.loading);
+  const loading = useSelector((state) => state.loader.loading);
 
   // ⛔ Gate animation while loader is active
   if (loading) return null;
@@ -24,10 +24,11 @@ export default function SlideOne({ isActive }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -40 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="container verticalSlides">
+          className="container verticalSlides"
+        >
           {/* TITLE */}
           <div className="row">
-            <div className="col-sm-6">
+            <div className="col-sm-6 tab-slide">
               <AnimatedText
                 key={isActive} // 🔥 reset typing animation on re-enter
                 text={title}
@@ -38,16 +39,28 @@ export default function SlideOne({ isActive }) {
 
           {/* LINKS */}
           <div className="row mt-4">
-            <div className="col-sm-2">
-              <motion.div custom={0} variants={linkVariants} initial="hidden" animate="show" whileHover={{ scale: 0.95 }}>
+            <div className="col-sm-2  tab-width">
+              <motion.div
+                custom={0}
+                variants={linkVariants}
+                initial="hidden"
+                animate="show"
+                whileHover={{ scale: 0.95 }}
+              >
                 <Link href="/about-us" className="yellow-btn">
                   What is the Plan? →
                 </Link>
               </motion.div>
             </div>
 
-            <div className="col-sm-2">
-              <motion.div custom={1} variants={linkVariants} initial="hidden" animate="show" whileHover={{ scale: 0.95 }}>
+            <div className="col-sm-2 tab-width">
+              <motion.div
+                custom={1}
+                variants={linkVariants}
+                initial="hidden"
+                animate="show"
+                whileHover={{ scale: 0.95 }}
+              >
                 <Link href="/about-us" className="yellow-btn">
                   Check the Status →
                 </Link>

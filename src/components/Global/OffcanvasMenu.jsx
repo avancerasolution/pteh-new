@@ -58,6 +58,9 @@ export default function OffcanvasMenu() {
                   <div className="row align-items-start">
                     {/* COLUMN 1 */}
                     <div className="col-sm-4 menu-col">
+                      <Link href="/the-background" onClick={(e) => navigate(e, "/the-background")}>
+                        The Background
+                      </Link>
                       <Link
                         className={isActive("/executive-summary") ? "active" : ""}
                         href="/executive-summary"
@@ -65,14 +68,11 @@ export default function OffcanvasMenu() {
                       >
                         Executive Summary
                       </Link>
-                      <Link href="/case-for-change" onClick={(e) => navigate(e, "/case-for-change")}>
-                        Case for Change
+                      <Link href="/future-state" onClick={(e) => navigate(e, "/future-state")}>
+                        Future State
                       </Link>
                       <Link href="/?slide=1" onClick={(e) => navigate(e, "/?slide=1")}>
                         Jump to the Action House
-                      </Link>
-                      <Link href="/the-background" onClick={(e) => navigate(e, "/the-background")}>
-                        The Background
                       </Link>
                     </div>
 
@@ -88,14 +88,11 @@ export default function OffcanvasMenu() {
                       <Link href="/priorities" onClick={(e) => navigate(e, "/priorities")}>
                         Priorities
                       </Link>
-                      <Link href="/actions" onClick={(e) => navigate(e, "/actions")}>
-                        Actions
+                      <Link href="/the-background?slide=9" onClick={(e) => navigate(e, "/the-background?slide=9")}>
+                        Community Partner
                       </Link>
                       <Link href="/our-data" onClick={(e) => navigate(e, "/our-data")}>
                         Data
-                      </Link>
-                      <Link href="/future-state" onClick={(e) => navigate(e, "/future-state")}>
-                        Future State
                       </Link>
                     </div>
 

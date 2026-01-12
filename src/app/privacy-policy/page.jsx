@@ -1,3 +1,4 @@
+import GlobalLoader from "@/components/Global/GlobalLoader";
 import PrivacyClients from "@/components/PrivacyComponents/PrivacyClients";
 import { Fragment, Suspense } from "react";
 
@@ -9,7 +10,13 @@ export const metadata = {
 export default function page() {
   return (
     <Fragment>
-      <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+      <Suspense
+        fallback={
+          <div className="text-center py-5">
+            <GlobalLoader />
+          </div>
+        }
+      >
         <PrivacyClients />
       </Suspense>
     </Fragment>

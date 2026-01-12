@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchDataPagePosts, selectDataPagePosts } from "@/store/slices/DataPageSlice";
 import DataBanner from "./DataBanner";
 import DataPageContent from "./DataPageContent";
+import GlobalLoader from "../Global/GlobalLoader";
 
 export default function DataClients() {
   const swiperRef = useRef(null);
@@ -35,11 +36,17 @@ export default function DataClients() {
 
       {!loading && (
         <>
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense fallback={<div className="text-center py-5">…</div>}>
             <DataBanner />
           </Suspense>
 
-          <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+          <Suspense
+            fallback={
+              <div className="text-center py-5">
+                <GlobalLoader />
+              </div>
+            }
+          >
             <DataPageContent posts={posts} loading={loading} />
           </Suspense>
         </>

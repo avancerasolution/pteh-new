@@ -5,12 +5,13 @@ import { useSelector } from "react-redux";
 
 import Header from "@/components/Global/Header";
 import VerticalSwiper from "@/components/HomeComponents/VerticalSwiper";
+import GlobalLoader from "../Global/GlobalLoader";
 
 export default function HomeClient() {
   const swiperRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
 
-  const loading = useSelector(state => state.loader.loading);
+  const loading = useSelector((state) => state.loader.loading);
 
   useEffect(() => {
     const target = sessionStorage.getItem("targetSlide");
@@ -26,7 +27,13 @@ export default function HomeClient() {
       <Header swiperRef={swiperRef} activeSlide={activeSlide} />
 
       {!loading && (
-        <Suspense fallback={<div className="text-center py-5">Loading banner…</div>}>
+        <Suspense
+          fallback={
+            <div className="text-center py-5">
+              <GlobalLoader />
+            </div>
+          }
+        >
           <VerticalSwiper swiperRef={swiperRef} activeSlide={activeSlide} setActiveSlide={setActiveSlide} />
         </Suspense>
       )}
