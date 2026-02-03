@@ -62,7 +62,7 @@ export default function BackGroundThree({ isActive }) {
           exit="hidden"
           className="container-fluid verticalSlides thirdslide"
         >
-          <div className="row align-items-end">
+          <div className="row align-items-end tab-three-adjust">
             {/* 🔹 COL 1 — HEADING + IMAGE */}
             <div className="col-sm-4">
               <AnimatedMidHeading

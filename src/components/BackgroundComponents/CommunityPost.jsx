@@ -79,7 +79,10 @@ export default function CommunityPost() {
 
             return (
               <SwiperSlide key={post.id}>
-                <div>
+                <div
+                  onClick={() => openCanvas(post)}
+                  style={{ cursor: "pointer", position: "relative", zIndex: "999" }}
+                >
                   <Image src={image} alt={post.title.rendered} width={400} height={400} className="img-fluid" />
                 </div>
               </SwiperSlide>
