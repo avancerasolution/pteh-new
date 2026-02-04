@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchDataPosts = createAsyncThunk("data/fetchPosts", async (_, { getState }) => {
   const { data } = getState();
 
@@ -24,7 +24,7 @@ const dataSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false,  
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +36,7 @@ const dataSlice = createSlice({
       .addCase(fetchDataPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchDataPosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +45,7 @@ const dataSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectDataPosts = (state) => state.data.posts;
 export const selectDataLoading = (state) => state.data.loading;
 export const selectDataError = (state) => state.data.error;

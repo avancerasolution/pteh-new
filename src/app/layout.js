@@ -3,6 +3,7 @@ import "antd/dist/reset.css";
 import "@/styles/GlobalFontsSetting.css";
 import "@/styles/MainStyle.css";
 import "@/styles/laptopResponsive.css";
+import "@/styles/MobileResponsive.css";
 import ClientWrapper from "./ClientWrapper";
 import ReduxProvider from "@/store/ReduxProvider";
 

@@ -186,3 +186,22 @@ b {
     --lh-body: 1.4;
   }
 }
+
+@media screen and (max-width: 520px) {
+  :root {
+    /* --font-primary: "TestMetric", sans-serif; */
+    --h1: 38px;
+    --h2: 32px;
+    --h3: 28px;
+    --h4: 22px;
+    --h5: 18px;
+    --h6: 16px;
+    --text-xl: 14px;
+    --text-lg: 14px;
+    --text-md: 14px;
+    --text-sm: 14px;
+    --text-table: 14px;
+    --lh-heading: 1;
+    --lh-body: 1.4;
+  }
+}

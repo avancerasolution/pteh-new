@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchGitPosts = createAsyncThunk("Git/fetchPosts", async (_, { getState }) => {
   const { Git } = getState();
 
@@ -24,7 +24,7 @@ const GitSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false,  
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +36,7 @@ const GitSlice = createSlice({
       .addCase(fetchGitPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchGitPosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +45,7 @@ const GitSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectGitPosts = (state) => state.Git.posts;
 export const selectGitLoading = (state) => state.Git.loading;
 export const selectGitError = (state) => state.Git.error;

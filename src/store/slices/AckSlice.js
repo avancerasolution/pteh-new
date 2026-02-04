@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchAckPosts = createAsyncThunk("Ack/fetchPosts", async (_, { getState }) => {
   const { Ack } = getState();
 
-  // 🛑 Stop duplicate API calls
   if (Ack.loaded) {
     return Ack.posts;
   }
@@ -24,7 +23,7 @@ const AckSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false, 
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +35,7 @@ const AckSlice = createSlice({
       .addCase(fetchAckPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchAckPosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +44,7 @@ const AckSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectAckPosts = (state) => state.Ack.posts;
 export const selectAckLoading = (state) => state.Ack.loading;
 export const selectAckError = (state) => state.Ack.error;

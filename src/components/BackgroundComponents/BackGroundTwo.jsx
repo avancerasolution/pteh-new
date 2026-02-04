@@ -11,12 +11,12 @@ import GlobalLoader from "@/components/Global/GlobalLoader";
 export default function BackGroundTwo({ isActive }) {
   const dispatch = useDispatch();
 
-  // 🔹 Redux hooks
+  //    Redux hooks
   const posts = useSelector(selectBackgroundPosts);
   const loading = useSelector(selectBackgroundLoading);
   const globalLoading = useSelector((state) => state.loader.loading);
 
-  // 🔹 Fetch background data
+  //    Fetch background data
   useEffect(() => {
     dispatch(fetchBackgroundPosts());
   }, [dispatch]);

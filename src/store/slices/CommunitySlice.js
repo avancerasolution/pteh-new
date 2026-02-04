@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchCommunityPosts = createAsyncThunk("Community/fetchPosts", async (_, { getState }) => {
   const { Community } = getState();
 
-  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
   if (Community.loaded) {
     return Community.posts;
   }
@@ -24,7 +23,7 @@ const CommunitySlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false,  
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +35,7 @@ const CommunitySlice = createSlice({
       .addCase(fetchCommunityPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchCommunityPosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +44,7 @@ const CommunitySlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectCommunityPosts = (state) => state.Community.posts;
 export const selectCommunityLoading = (state) => state.Community.loading;
 export const selectCommunityError = (state) => state.Community.error;

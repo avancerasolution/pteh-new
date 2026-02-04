@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchDataPagePosts = createAsyncThunk("DataPage/fetchPosts", async (_, { getState }) => {
   const { DataPage } = getState();
 
@@ -24,7 +24,7 @@ const DataPageSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false,  
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +36,7 @@ const DataPageSlice = createSlice({
       .addCase(fetchDataPagePosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchDataPagePosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +45,7 @@ const DataPageSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectDataPagePosts = (state) => state.DataPage.posts;
 export const selectDataPageLoading = (state) => state.DataPage.loading;
 export const selectDataPageError = (state) => state.DataPage.error;

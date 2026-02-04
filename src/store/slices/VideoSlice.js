@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchVideoPosts = createAsyncThunk("Video/fetchPosts", async (_, { getState }) => {
   const { Video } = getState();
 
@@ -24,7 +24,7 @@ const VideoSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false,  
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +36,7 @@ const VideoSlice = createSlice({
       .addCase(fetchVideoPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchVideoPosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +45,7 @@ const VideoSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectVideoPosts = (state) => state.Video.posts;
 export const selectVideoLoading = (state) => state.Video.loading;
 export const selectVideoError = (state) => state.Video.error;

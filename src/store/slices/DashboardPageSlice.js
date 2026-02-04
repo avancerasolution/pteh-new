@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchDashboardPagePosts = createAsyncThunk("DashboardPage/fetchPosts", async (_, { getState }) => {
   const { DashboardPage } = getState();
 
@@ -24,7 +24,7 @@ const DashboardPageSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false,  
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +36,7 @@ const DashboardPageSlice = createSlice({
       .addCase(fetchDashboardPagePosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchDashboardPagePosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +45,7 @@ const DashboardPageSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectDashboardPagePosts = (state) => state.DashboardPage.posts;
 export const selectDashboardPageLoading = (state) => state.DashboardPage.loading;
 export const selectDashboardPageError = (state) => state.DashboardPage.error;

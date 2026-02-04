@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* =====================================
-   FETCH PILLARS (ONLY TAXONOMIES)
-===================================== */
+
+  //  FETCH PILLARS (ONLY TAXONOMIES)
 export const fetchPillars = createAsyncThunk("pillars/fetchPillars", async ({ page = 1 }, { rejectWithValue }) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/pillar-texanomies?per_page=20&page=${page}`);
@@ -18,9 +17,8 @@ export const fetchPillars = createAsyncThunk("pillars/fetchPillars", async ({ pa
   }
 });
 
-/* =====================================
-   FETCH POSTS FOR SINGLE PILLAR (LAZY)
-===================================== */
+
+  //  FETCH POSTS FOR SINGLE PILLAR (LAZY)
 export const fetchPillarPosts = createAsyncThunk("pillars/fetchPillarPosts", async (pillarId, { rejectWithValue }) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/pillars?pillar-texanomies=${pillarId}`);

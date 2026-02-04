@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchFutureEthosPosts = createAsyncThunk("FutureEthos/fetchPosts", async (_, { getState }) => {
   const { FutureEthos } = getState();
 
@@ -44,7 +44,7 @@ const FutureEthosSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectFutureEthosPosts = (state) => state.FutureEthos.posts;
 export const selectFutureEthosLoading = (state) => state.FutureEthos.loading;
 

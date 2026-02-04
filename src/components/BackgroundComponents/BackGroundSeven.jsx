@@ -13,12 +13,12 @@ import { formatText } from "@/lib/FormatText";
 export default function BackGroundSeven({ isActive }) {
   const dispatch = useDispatch();
 
-  // 🔹 Redux hooks
+  //    Redux hooks
   const posts = useSelector(selectBackgroundPosts);
   const loading = useSelector(selectBackgroundLoading);
   const globalLoading = useSelector((state) => state.loader.loading);
 
-  // 🔹 Fetch data
+  //    Fetch data
   useEffect(() => {
     dispatch(fetchBackgroundPosts());
   }, [dispatch]);

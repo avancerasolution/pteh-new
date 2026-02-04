@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchPrivacyPosts = createAsyncThunk("Privacy/fetchPosts", async (_, { getState }) => {
   const { Privacy } = getState();
 
@@ -24,7 +24,7 @@ const PrivacySlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false,  
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +36,7 @@ const PrivacySlice = createSlice({
       .addCase(fetchPrivacyPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchPrivacyPosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +45,7 @@ const PrivacySlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectPrivacyPosts = (state) => state.Privacy.posts;
 export const selectPrivacyLoading = (state) => state.Privacy.loading;
 export const selectPrivacyError = (state) => state.Privacy.error;

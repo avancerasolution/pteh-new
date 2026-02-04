@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* ===============================
-   FETCH ALL PILLAR POSTS
-================================ */
+  //  FETCH ALL PILLAR POSTS
 export const fetchPillarStats = createAsyncThunk("pillarStats/fetch", async (_, { rejectWithValue }) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_WP_API}/pillars?per_page=100`);

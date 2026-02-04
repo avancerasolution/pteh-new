@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchFuturePosts = createAsyncThunk("Future/fetchPosts", async (_, { getState }) => {
   const { Future } = getState();
 
@@ -24,7 +24,7 @@ const FutureSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false,  
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +36,7 @@ const FutureSlice = createSlice({
       .addCase(fetchFuturePosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchFuturePosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +45,7 @@ const FutureSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectFuturePosts = (state) => state.Future.posts;
 export const selectFutureLoading = (state) => state.Future.loading;
 export const selectFutureError = (state) => state.Future.error;

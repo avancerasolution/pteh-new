@@ -8,13 +8,13 @@ import { rowAnim } from "@/lib/Animation";
 import GlobalLoader from "@/components/Global/GlobalLoader";
 import AnimatedMidHeading from "../Reuseable/AnimatedMidHeading";
 
-/* 🔹 SWIPER */
+/*    SWIPER */
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-/* 🔹 YouTube helper */
+/*    YouTube helper */
 const getYouTubeEmbed = (url) => {
   if (!url) return "";
   const id = url.split("v=")[1]?.split("&")[0];
