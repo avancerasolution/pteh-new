@@ -97,7 +97,7 @@ export default function SlideTwo({ isActive }) {
                 initial="hidden"
                 animate="show"
               >
-                <Link href="/get-involved">
+                <Link href="/dashboard">
                   <Image src={dashboard} alt="Dashboard" width={300} height={100} />
                 </Link>
               </motion.div>

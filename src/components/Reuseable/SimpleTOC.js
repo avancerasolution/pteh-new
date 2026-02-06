@@ -1,6 +1,6 @@
 "use client";
 
-export default function SimpleTOC({ headings = [] }) {
+export default function SimpleTOC({ headings = [], onLinkClick }) {
   if (!headings.length) return null;
 
   const scrollTo = (id) => {
@@ -8,19 +8,20 @@ export default function SimpleTOC({ headings = [] }) {
       behavior: "smooth",
       block: "start",
     });
+
+    if (onLinkClick) {
+      setTimeout(() => {
+        onLinkClick();
+      }, 400);
+    }
   };
 
   return (
     <div className="simple-toc">
-      <h4>Table of Contents</h4>
+      <h4 className="toc-title">Table of Contents</h4>
 
       {headings.map((item) => (
-        <div
-          key={item.id}
-          className={`toc-${item.level}`}
-          onClick={() => scrollTo(item.id)}
-          style={{ cursor: "pointer", marginBottom: 8 }}
-        >
+        <div key={item.id} className={`toc-item toc-${item.level}`} onClick={() => scrollTo(item.id)}>
           {item.text}
         </div>
       ))}

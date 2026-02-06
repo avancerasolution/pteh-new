@@ -235,5 +235,241 @@
 }
 
 @media screen and (max-width: 520px) {
-
+  .container {
+    max-width: 100%;
+    margin: auto;
+  }
+  .row.fixedheader .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-6.left-head img {
+    width: 35%;
+    height: auto;
+  }
+  .col-sm-6.mainmenu img {
+    width: 22%;
+  }
+  .row.fixedheader {
+    align-items: center;
+  }
+  html body .top-offcanvas {
+    height: 100vh !important;
+  }
+  .col-sm-1.divider-col {
+    display: none;
+  }
+  .menu-col a {
+    padding: 15px 0;
+  }
+  .menu-wrapper {
+    padding: 18% 0% 0;
+  }
+  .menu-close {
+    right: 10px;
+  }
+  .col-sm-6.tab-slide.mobile-set h1 {
+    text-align: center;
+  }
+  .tab-width {
+    width: 50%;
+  }
+  .container.verticalSlides.visionHouse a img {
+    width: 70%;
+  }
+  .priority {
+    top: -15%;
+    left: -220%;
+  }
+  .dashboard {
+    bottom: -4%;
+  }
+  .future {
+    top: 17%;
+    right: -100%;
+  }
+  .data {
+    bottom: -4%;
+    right: -75%;
+  }
+  .row.align-items-end.tab-three-adjust .col-sm-4 {
+    padding-top: 0%;
+  }
+  .thirdslide .col-sm-3,
+  .thirdslide .col-sm-4 {
+    width: 50%;
+  }
+  .thirdslide .col-sm-5 {
+    width: 100%;
+  }
+  .thirdslide .col-sm-4 h3 {
+    font-size: var(--h5);
+  }
+  .thirdslide .col-sm-4 img {
+    height: auto;
+  }
+  .thirdslide .wysiwyg-text {
+    padding: 1% 0%;
+  }
+  .thirdslide .align-items-end {
+    align-items: normal !important;
+  }
+  .row.align-items-end.tab-three-adjust .col-sm-4,
+  .row.align-items-end.tab-three-adjust .col-sm-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+  .row.align-items-end.tab-three-adjust .col-sm-3 img {
+    height: 100% !important;
+  }
+  .slide-four img {
+    height: 300px;
+  }
+  .gallery-wrapper {
+    height: 280px;
+  }
+  .slide-eight iframe {
+    width: 100%;
+    height: 290px;
+  }
+  .video-iframe-wrap {
+    padding-top: 80%;
+  }
+  .communitycanvas .col-sm-6 img {
+    height: 175px;
+  }
+  .full-offcanvas.communitycanvas.offcanvas.offcanvas-end.show .row {
+    flex-direction: column-reverse;
+  }
+  .full-offcanvas.communitycanvas.offcanvas.offcanvas-end.show .col-sm-6 {
+    padding-bottom: 5%;
+  }
+  .row.Executive .col-sm-9 {
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+  button.w-100.btn.btn-dark {
+    background: #eccd75;
+    color: #000;
+    height: 50px;
+    width: 5% !important;
+    display: block;
+    padding: 0px;
+    border-radius: 0;
+    border: 2px solid #eccd75;
+    position: fixed;
+    left: 0;
+    top: 40%;
+    z-index: 999;
+  }
+  .executive-summary .default-header,
+  .get-in-touch .default-header,
+  .acknowledgements .default-header,
+  .privacy-policy .default-header,
+  .our-data .default-header,
+  .future-state .default-header,
+  .priorities .default-header,
+  .dashboard .default-header {
+    background-color: #56797f;
+  }
+  .footer ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 20px;
+  }
+  .container-fluid.footer img {
+    width: 22%;
+  }
+  ul.footer-links {
+    padding-top: 6%;
+    padding-bottom: 5%;
+  }
+  .container-fluid.common-banner {
+    height: 300px;
+  }
+  .ab-btn {
+    bottom: 0%;
+  }
+  .container-fluid.dashboard .container-fluid.common-banner,
+  .container-fluid.priorities .container-fluid.common-banner {
+    height: 490px;
+  }
+  .container-fluid.common-banner h1 {
+    text-align: center;
+  }
+  .vision-container .row {
+    padding: 10% 0;
+  }
+  .status-label,
+  .status-name {
+    font-size: 12px;
+  }
+  .status-count {
+    font-size: 18px;
+  }
+  .pillars-container h4 {
+    font-size: var(--h6);
+  }
+  .row.teblerow {
+    padding: 3%;
+  }
+  .priorities .ethos-table {
+    width: 800%;
+  }
+  .col-sm-11.pillar-table {
+    width: 100%;
+  }
+  .our-datas {
+    padding: 10% 0;
+  }
+  .container.alldata {
+    background: #eccd75;
+    max-width: 93%;
+    margin: auto;
+    padding: 5% 5% !important;
+  }
+  .container.alldata .col-sm-9 {
+    width: 85%;
+  }
+  .container.alldata .col-sm-3 {
+    width: 15%;
+  }
+  .container.alldata .row {
+    padding-bottom: 10%;
+  }
+  .col-sm-12.data-text {
+    margin-top: 5%;
+  }
+  .container.privacy {
+    padding: 3%;
+  }
+  .Ack {
+    padding: 10% 3%;
+  }
+  .Git {
+    padding: 10% 2%;
+    padding-bottom: 2%;
+  }
+  .form-comp {
+    padding: 10% 5%;
+  }
+  .form-comp .col-sm-6 .ant-form-item.css-var-root.ant-form-item-vertical {
+    margin: 0;
+    margin-top: 10px;
+  }
+  .ant-form-item.css-var-root.ant-form-item-vertical {
+    margin: 10px 0;
+  }
+  .form-comp input {
+    margin: 0;
+  }
+  div#donate .col-sm-5 img {
+    object-fit: fill;
+    height: 300px;
+  }
 }
