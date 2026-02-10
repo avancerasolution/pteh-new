@@ -14,19 +14,19 @@ export default function Footer() {
 
             <ul className="footer-links">
               <li>
-                <Link href="#">Plan</Link>
+                <Link href="/executive-summary">Plan</Link>
               </li>
               <li>
-                <Link href="#">Case for Change</Link>
+                <Link href="/future-state">Future State</Link>
               </li>
               <li>
-                <Link href="#">Actions and Impact</Link>
+                <Link href="/priorities">Actions and Impact</Link>
               </li>
               <li>
-                <Link href="#">Moving Ahead</Link>
+                <Link href="/our-data">Our Data</Link>
               </li>
               <li>
-                <Link href="#">Appendices</Link>
+                <Link href="/acknowledgements">Acknowledgements</Link>
               </li>
             </ul>
 
