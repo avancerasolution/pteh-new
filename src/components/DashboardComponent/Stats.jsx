@@ -4,21 +4,13 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Progress } from "antd";
 import { motion } from "framer-motion";
-
-/* 🔥 CHART.JS */
 import { Pie as ChartPie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 import { fetchPillarStats, selectPillarStats, selectPillarStatsTotal } from "@/store/slices/pillarStatsSlice";
 
-/* ===============================
-   REGISTER CHART.JS
-================================ */
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-/* ===============================
-   STATUS CONFIG
-================================ */
 const STATUS_CONFIG = [
   { label: "Not started", color: "#b12c4a" },
   { label: "Completed", color: "#6a9a3c" },
@@ -36,9 +28,6 @@ export default function Stats() {
     dispatch(fetchPillarStats());
   }, [dispatch]);
 
-  /* ===============================
-     PIE CHART DATA
-  ================================ */
   const pieChartData = {
     labels: STATUS_CONFIG.map((s) => s.label),
     datasets: [
@@ -51,9 +40,6 @@ export default function Stats() {
     ],
   };
 
-  /* ===============================
-     PIE CHART OPTIONS (FIXED)
-  ================================ */
   const pieChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -63,13 +49,13 @@ export default function Stats() {
         labels: {
           color: "#333",
           font: {
-            size: 18, // 👈 LABEL SIZE (increase/decrease as needed)
+            size: 18,
             weight: "500",
           },
-          padding: 20, // 👈 SPACE between legend items
+          padding: 20,
           boxWidth: 16,
           boxHeight: 16,
-          lineHeight: 28, // 👈 SPACE BELOW each label
+          lineHeight: 28,
         },
       },
       tooltip: {
@@ -87,9 +73,6 @@ export default function Stats() {
   return (
     <div className="container my-5 stats">
       <div className="row justify-content-center text-center">
-        {/* ===============================
-            TOP STATUS CIRCLES
-        ================================ */}
         {STATUS_CONFIG.map((status, i) => (
           <div className="col-sm-2 mb-4" key={status.label}>
             <motion.div
@@ -120,9 +103,6 @@ export default function Stats() {
           </div>
         ))}
 
-        {/* ===============================
-            PIE CHART (100% RESPONSIVE)
-        ================================ */}
         <motion.div
           className="col-12 mt-5"
           initial={{ scale: 0.7, opacity: 0 }}
