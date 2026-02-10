@@ -14,19 +14,19 @@ import GlobalLoader from "@/components/Global/GlobalLoader";
 export default function BackGroundThree({ isActive }) {
   const dispatch = useDispatch();
 
-  // 🔹 Redux hooks
+  //    Redux hooks
   const posts = useSelector(selectBackgroundPosts);
   const loading = useSelector(selectBackgroundLoading);
   const globalLoading = useSelector((state) => state.loader.loading);
 
   const post = posts?.[0];
 
-  // 🔹 Custom hooks (ALWAYS called)
+  //    Custom hooks (ALWAYS called)
   const imageOne = useWpImage(post?.acf?.slide_three_image);
   const imageTwo = useWpImage(post?.acf?.slide_three_image_vertical);
   const imagethree = useWpImage(post?.acf?.slide_three_image_backgground);
 
-  // 🔹 Fetch data
+  //    Fetch data
   useEffect(() => {
     dispatch(fetchBackgroundPosts());
   }, [dispatch]);
@@ -62,8 +62,8 @@ export default function BackGroundThree({ isActive }) {
           exit="hidden"
           className="container-fluid verticalSlides thirdslide"
         >
-          <div className="row align-items-end">
-            {/* 🔹 COL 1 — HEADING + IMAGE */}
+          <div className="row align-items-end tab-three-adjust">
+            {/*    COL 1 — HEADING + IMAGE */}
             <div className="col-sm-4">
               <AnimatedMidHeading
                 key={isActive}
@@ -77,14 +77,14 @@ export default function BackGroundThree({ isActive }) {
               </motion.div>
             </div>
 
-            {/* 🔹 COL 2 — IMAGE SLIDE UP */}
+            {/*    COL 2 — IMAGE SLIDE UP */}
             <div className="col-sm-3">
               <motion.div variants={imageUp} transition={{ delay: 0.15 }}>
                 <Image src={imageTwo} width={400} height={700} alt="Slide Three Image Two" className="img-fluid" />
               </motion.div>
             </div>
 
-            {/* 🔹 COL 3 — LEFT → RIGHT */}
+            {/*    COL 3 — LEFT → RIGHT */}
             <motion.div
               className="col-sm-5"
               variants={fromLeft}

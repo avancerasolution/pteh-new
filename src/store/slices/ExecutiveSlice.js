@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchExecutivePosts = createAsyncThunk("Executive/fetchPosts", async (_, { getState }) => {
   const { Executive } = getState();
 
@@ -24,7 +24,7 @@ const ExecutiveSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false,  
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +36,7 @@ const ExecutiveSlice = createSlice({
       .addCase(fetchExecutivePosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchExecutivePosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +45,7 @@ const ExecutiveSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectExecutivePosts = (state) => state.Executive.posts;
 export const selectExecutiveLoading = (state) => state.Executive.loading;
 export const selectExecutiveError = (state) => state.Executive.error;

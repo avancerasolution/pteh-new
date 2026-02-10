@@ -20,10 +20,10 @@ export default function FutureETHOSTable() {
 
   if (loading || !posts.length) return null;
 
-  // 🔹 API → UI structure
+  //    API → UI structure
   const futureETHOSData = mapFutureETHOS(posts);
 
-  // 🔹 TOTALS (API DATA SE)
+  //    TOTALS (API DATA SE)
   const total2021 = futureETHOSData.reduce(
     (sectionSum, section) => sectionSum + section.items.reduce((itemSum, item) => itemSum + (item.y2021 || 0), 0),
     0
@@ -105,7 +105,7 @@ export default function FutureETHOSTable() {
           })
         )}
 
-        {/* 🔹 FOOTER */}
+        {/*    FOOTER */}
         <tr className="footer-row">
           <td colSpan="6">
             Short stay is defined as normally less than one year. Long stay is defined as more than one year. (*)

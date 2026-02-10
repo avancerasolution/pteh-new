@@ -9,7 +9,7 @@ export default function SlideTwo({ isActive }) {
   const future = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1357.png";
   const data = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1358.png";
   const priority = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1355.png";
-  const action = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2026/01/TP.png";
+  const action = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2026/02/Community-Partner-1.png";
   const dashboard = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Frame-1359.png";
   const visionHouse = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/visionHome.png";
   const powered = "https://hostedsitedemo.com/new-pteh/wp-content/uploads/2025/12/Group-1000002295.png";
@@ -97,7 +97,7 @@ export default function SlideTwo({ isActive }) {
                 initial="hidden"
                 animate="show"
               >
-                <Link href="/get-involved">
+                <Link href="/dashboard">
                   <Image src={dashboard} alt="Dashboard" width={300} height={100} />
                 </Link>
               </motion.div>

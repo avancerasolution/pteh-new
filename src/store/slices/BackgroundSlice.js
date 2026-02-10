@@ -1,10 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchBackgroundPosts = createAsyncThunk("Background/fetchPosts", async (_, { getState }) => {
   const { Background } = getState();
 
-  // 🛑 Stop duplicate API calls (React 18 Strict Mode safe)
   if (Background.loaded) {
     return Background.posts;
   }
@@ -24,7 +23,7 @@ const BackgroundSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false, 
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +35,7 @@ const BackgroundSlice = createSlice({
       .addCase(fetchBackgroundPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true; 
       })
       .addCase(fetchBackgroundPosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +44,7 @@ const BackgroundSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectBackgroundPosts = (state) => state.Background.posts;
 export const selectBackgroundLoading = (state) => state.Background.loading;
 export const selectBackgroundError = (state) => state.Background.error;

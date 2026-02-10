@@ -30,12 +30,10 @@ export default function Pillars() {
 
   const tableRef = useRef(null);
 
-  /* ===== INITIAL LOAD ===== */
   useEffect(() => {
     dispatch(fetchPillars({ page: 1 }));
   }, [dispatch]);
 
-  /* ===== CLICK → LAZY LOAD POSTS ===== */
   const handleView = (pillar) => {
     dispatch(setActivePillar({ ...pillar, posts: [] }));
     dispatch(fetchPillarPosts(pillar.id));
@@ -85,7 +83,6 @@ export default function Pillars() {
               </div>
             ))}
 
-            {/* LOAD MORE LOADER */}
             {loading && (
               <div className="col-sm-12 text-center my-4">
                 <GlobalLoader />

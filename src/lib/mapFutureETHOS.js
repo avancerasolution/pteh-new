@@ -1,7 +1,7 @@
-// 🔹 HTML strip
+//    HTML strip
 const stripHTML = (html = "") => html.replace(/<[^>]*>/g, "").trim();
 
-// 🔹 rows helper
+//    rows helper
 const parseRows = (rows) => {
   if (!rows) return null;
 
@@ -25,7 +25,7 @@ export function mapFutureETHOS(posts) {
   const sectionsMap = {};
 
   posts.forEach((post) => {
-    /* 🔹 taxonomy name */
+    /*    taxonomy name */
     const terms = post._embedded?.["wp:term"] || [];
     const sectionTerm = terms.flat().find((t) => t.taxonomy === "table-texanomies");
 
@@ -38,7 +38,7 @@ export function mapFutureETHOS(posts) {
       };
     }
 
-    /* 🔹 operational */
+    /*    operational */
     let operational = stripHTML(post.acf.operational);
 
     if (post.acf.bullets) {
@@ -55,7 +55,7 @@ export function mapFutureETHOS(posts) {
       }
     }
 
-    /* 🔹 push item */
+    /*    push item */
     sectionsMap[sectionName].items.push({
       no: Number(post.title.rendered), // 🔥 number for sorting
       operational,

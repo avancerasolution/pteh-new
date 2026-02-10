@@ -7,10 +7,8 @@ import { rowAnim } from "@/lib/Animation";
 import GlobalLoader from "@/components/Global/GlobalLoader";
 import { selectPillarPostsLoading } from "@/store/slices/pillarSlice";
 import useDragScroll from "@/hooks/useDragScroll";
+import moment from "moment";
 
-/* ===============================
-   STATUS → COLOR MAP
-================================ */
 const statusClassMap = {
   "Not started": "status-not-started",
   Completed: "status-completed",
@@ -35,7 +33,7 @@ export default function PillarTable({ pillar }) {
         variants={rowAnim}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="tableheading col-sm-11"
       >
         <h2>{pillar?.acf?.table_heading}</h2>
@@ -46,7 +44,7 @@ export default function PillarTable({ pillar }) {
         variants={rowAnim}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="col-sm-11 pillar-table"
       >
         {/* 🔥 IMPORTANT: ref here */}
@@ -84,8 +82,8 @@ export default function PillarTable({ pillar }) {
                     <td>{post?.acf?.owner || "-"}</td>
                     <td>{post?.acf?.government_ministry || "-"}</td>
                     <td>{post?.acf?.ngo || "-"}</td>
-                    <td className="center">{post?.acf?.start_date || "-"}</td>
-                    <td className="center">{post?.acf?.due_date || "-"}</td>
+                    <td className="center">{moment(post?.acf?.start_date || "-").format("DD MMMM YYYY")}</td>
+                    <td className="center">{moment(post?.acf?.due_date || "-").format("DD MMMM YYYY")}</td>
                     <td className="center">{post?.acf?.metric || "-"}</td>
                     <td className="center">{post?.acf?.budget || "-"}</td>
                     <td className={`status-cell ${statusClassMap[post?.acf?.status]}`}>{post?.acf?.status}</td>

@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 export default function AnimatedText({ text, className, staggerDelay = 0.12 }) {
-  // 🔹 split text into lines first
+  //    split text into lines first
   const lines = text.split("\n");
 
   const parent = {

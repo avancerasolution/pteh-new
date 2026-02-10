@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion, scale } from "framer-motion";
 import { rowAnim } from "@/lib/Animation";
 
-/* 🔹 ROW ANIMATION */
+/*    ROW ANIMATION */
 
 export default function SlideThree({ isActive }) {
   return (

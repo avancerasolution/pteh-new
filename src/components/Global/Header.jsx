@@ -33,7 +33,7 @@ function Header({ swiperRef, activeSlide }) {
             initial={{ opacity: 0, x: -200 }}
             animate={!loading ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="col-sm-6"
+            className="col-sm-6 left-head"
           >
             <Link href="/">
               <Image src={LOGO} alt="logo" />

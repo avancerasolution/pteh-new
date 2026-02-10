@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* 🔹 Async Thunk */
+/*    Async Thunk */
 export const fetchSteeringPosts = createAsyncThunk("steering/fetchPosts", async (_, { getState }) => {
   const { steering } = getState();
 
@@ -24,7 +24,7 @@ const steeringSlice = createSlice({
     posts: [],
     loading: false,
     error: null,
-    loaded: false, // 👈 IMPORTANT
+    loaded: false,  
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -36,7 +36,7 @@ const steeringSlice = createSlice({
       .addCase(fetchSteeringPosts.fulfilled, (state, action) => {
         state.loading = false;
         state.posts = action.payload;
-        state.loaded = true; // 👈 mark as fetched
+        state.loaded = true;  
       })
       .addCase(fetchSteeringPosts.rejected, (state, action) => {
         state.loading = false;
@@ -45,7 +45,7 @@ const steeringSlice = createSlice({
   },
 });
 
-/* 🔹 Selectors */
+/*    Selectors */
 export const selectSteeringPosts = (state) => state.steering.posts;
 export const selectSteeringLoading = (state) => state.steering.loading;
 export const selectSteeringError = (state) => state.steering.error;

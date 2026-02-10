@@ -1,20 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-/* ===============================
-   SUBMIT FORM (CF7 ID = 12)
-================================ */
+// SUBMIT FORM (CF7 ID = 12)
+
 export const submitGitForm = createAsyncThunk("gitForm/submit", async (values, { rejectWithValue, getState }) => {
   try {
     const { gitForm } = getState();
 
-    // 🛑 Prevent duplicate submit
     if (gitForm.loading) {
       return rejectWithValue("Form is already submitting");
     }
 
     const formData = new FormData();
 
-    // ⚠️ CF7 FIELD NAMES (MATCH WP)
     formData.append("first-name", values.firstName);
     formData.append("last-name", values.lastName);
     formData.append("your-email", values.email);

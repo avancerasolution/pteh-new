@@ -12,18 +12,18 @@ import { useWpImage } from "@/hooks/useWpImage";
 export default function BackGroundFour({ isActive }) {
   const dispatch = useDispatch();
 
-  // 🔹 Redux hooks (ALWAYS called)
+  //    Redux hooks (ALWAYS called)
   const posts = useSelector(selectBackgroundPosts);
   const loading = useSelector(selectBackgroundLoading);
   const globalLoading = useSelector((state) => state.loader.loading);
 
-  // 🔹 Safe post reference
+  //    Safe post reference
   const post = posts?.[0];
 
-  // 🔹 ✅ CUSTOM HOOK MUST BE HERE (ALWAYS)
+  //    ✅ CUSTOM HOOK MUST BE HERE (ALWAYS)
   const image = useWpImage(post?.acf?.slide_four_image);
 
-  // 🔹 Fetch data
+  //    Fetch data
   useEffect(() => {
     dispatch(fetchBackgroundPosts());
   }, [dispatch]);

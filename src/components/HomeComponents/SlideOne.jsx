@@ -9,10 +9,10 @@ import { useSelector } from "react-redux";
 export default function SlideOne({ isActive }) {
   const title = "The Plan to end\n homelessness\nIn Bermuda";
 
-  // ⭐ GLOBAL LOADER STATE
+  //  GLOBAL LOADER STATE
   const loading = useSelector((state) => state.loader.loading);
 
-  // ⛔ Gate animation while loader is active
+  //  Gate animation while loader is active
   if (loading) return null;
 
   return (
@@ -28,9 +28,9 @@ export default function SlideOne({ isActive }) {
         >
           {/* TITLE */}
           <div className="row">
-            <div className="col-sm-6 tab-slide">
+            <div className="col-sm-6 tab-slide mobile-set">
               <AnimatedText
-                key={isActive} // 🔥 reset typing animation on re-enter
+                key={isActive} //  reset typing animation on re-enter
                 text={title}
                 className="hero-title"
               />
@@ -47,7 +47,7 @@ export default function SlideOne({ isActive }) {
                 animate="show"
                 whileHover={{ scale: 0.95 }}
               >
-                <Link href="/execytive-summary" className="yellow-btn">
+                <Link href="/executive-summary" className="yellow-btn">
                   What is the Plan? →
                 </Link>
               </motion.div>
