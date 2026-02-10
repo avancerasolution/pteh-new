@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { rowAnim } from "@/lib/Animation";
 import AnimatedMidHeading from "@/components/Reuseable/AnimatedMidHeading";
 import CommunityPost from "./CommunityPost";
+import Link from "next/link";
 
 export default function BackGroundNine({ isActive }) {
   const heading = "Our community partners";
@@ -31,6 +32,9 @@ export default function BackGroundNine({ isActive }) {
             >
               <CommunityPost isActive={isActive} />
             </motion.div>
+            <Link href="/?slide=1" className="yellow-btn executive">
+              Back to vision house →
+            </Link>
           </div>
         </div>
       </div>

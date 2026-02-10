@@ -1219,7 +1219,12 @@ ul.social-links {
 .chart-wrapper canvas label {
   font-size: 32px !important;
 }
-
+a.yellow-btn.executive {
+  position: fixed;
+  bottom: 0;
+  width: 20%;
+  right: 0;
+}
 /* Mobile optimization */
 @media (max-width: 768px) {
   .chart-wrapper {

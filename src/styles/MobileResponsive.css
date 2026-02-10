@@ -232,6 +232,9 @@
     height: 500px;
     object-fit: fill;
   }
+  a.yellow-btn.executive {
+    width: 30%;
+  }
 }
 
 @media screen and (max-width: 520px) {
@@ -471,5 +474,8 @@
   div#donate .col-sm-5 img {
     object-fit: fill;
     height: 300px;
+  }
+  a.yellow-btn.executive {
+    width: 100%;
   }
 }

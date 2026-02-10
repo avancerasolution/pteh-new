@@ -45,7 +45,9 @@ export default function GitDonate({ posts, loading }) {
             <h2>{heading}</h2>
             <div className="wysiwyg-text " dangerouslySetInnerHTML={{ __html: formatText(rawHTML) }} />
             <motion.div className="btm-marg" whileHover={{ scale: 0.95 }}>
-              <Link href="">Donate Online →</Link>
+              <Link href="https://home.bm/product/donate-to-home/" target="_blank">
+                Donate Online →
+              </Link>
             </motion.div>
 
             <div className="donateDetails">
