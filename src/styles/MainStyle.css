@@ -237,7 +237,7 @@ a.yellow-btn {
   height: auto;
 }
 .visionHouse .col-sm-3 img {
-  width: auto;
+  width: revert-layer;
   height: auto;
 }
 .visionHouse .col-sm-3 {
@@ -1224,6 +1224,19 @@ a.yellow-btn.executive {
   bottom: 0;
   width: 20%;
   right: 0;
+}
+
+.dashboard.equal img, .future.equal img, .action.equal img{
+  width: 450px;
+}
+@media (max-width: 2000px) {
+.visionHouse .col-sm-3 img {
+  width: auto;
+  height: auto;
+}
+.dashboard.equal img, .future.equal img, .action.equal img{
+  width: auto;
+}
 }
 /* Mobile optimization */
 @media (max-width: 768px) {
