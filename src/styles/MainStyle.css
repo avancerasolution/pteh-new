@@ -236,10 +236,7 @@ a.yellow-btn {
   margin: auto;
   height: auto;
 }
-.visionHouse .col-sm-3 img {
-  width: revert-layer;
-  height: auto;
-}
+
 .visionHouse .col-sm-3 {
   position: relative;
 }
@@ -248,7 +245,7 @@ a.yellow-btn {
   z-index: 999;
 }
 .priority {
-  left: -90%;
+  left: -92%;
   top: -12%;
 }
 .dashboard {
@@ -257,11 +254,11 @@ a.yellow-btn {
 }
 .action {
   left: -20%;
-  top: 30%;
+  top: 31%;
 }
 .future {
   right: -20%;
-  top: 20%;
+  top: 23%;
 }
 .data {
   right: -20%;
@@ -1225,18 +1222,47 @@ a.yellow-btn.executive {
   width: 20%;
   right: 0;
 }
-
-.dashboard.equal img, .future.equal img, .action.equal img{
-  width: 450px;
-}
-@media (max-width: 2000px) {
 .visionHouse .col-sm-3 img {
-  width: auto;
+  width: 140px;
   height: auto;
 }
-.dashboard.equal img, .future.equal img, .action.equal img{
-  width: auto;
+
+.dashboard.equal img,
+.future.equal img,
+.action.equal img {
+  width: 230px;
 }
+
+@media (max-width: 2000px) {
+  .visionHouse .col-sm-3 img {
+    width: auto;
+    height: auto;
+  }
+  .dashboard.equal img,
+  .future.equal img,
+  .action.equal img {
+    width: auto;
+  }
+  .priority {
+    left: -93%;
+    top: -12%;
+  }
+  .dashboard {
+    left: -20%;
+    bottom: 0;
+  }
+  .action {
+    left: -20%;
+    top: 30%;
+  }
+  .future {
+    right: -20%;
+    top: 22%;
+  }
+  .data {
+    right: -20%;
+    bottom: 0%;
+  }
 }
 /* Mobile optimization */
 @media (max-width: 768px) {
