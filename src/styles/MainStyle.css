@@ -1226,11 +1226,13 @@ a.yellow-btn.executive {
   width: 140px;
   height: auto;
 }
-
 .dashboard.equal img,
 .future.equal img,
 .action.equal img {
   width: 230px;
+}
+.col-sm-6.mainmenu button.menu-btn img {
+  width: 30px;
 }
 
 @media (max-width: 2000px) {
