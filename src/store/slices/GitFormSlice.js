@@ -12,11 +12,11 @@ export const submitGitForm = createAsyncThunk("gitForm/submit", async (values, {
 
     const formData = new FormData();
 
-    formData.append("first-name", values.firstName);
-    formData.append("last-name", values.lastName);
-    formData.append("your-email", values.email);
-    formData.append("your-phone", values.phone);
-    formData.append("your-message", values.message);
+    formData.append("text-485", values.firstName);
+    formData.append("text-232", values.lastName);
+    formData.append("email-644", values.email);
+    formData.append("tel-790", values.phone);
+    formData.append("textarea-473", values.message);
 
     // CF7 required hidden field
     formData.append("_wpcf7_unit_tag", "wpcf7-f12-p0-o1");
