@@ -6,9 +6,9 @@ export const submitGitForm = createAsyncThunk("gitForm/submit", async (values, {
   try {
     const { gitForm } = getState();
 
-    if (gitForm.loading) {
-      return rejectWithValue("Form is already submitting");
-    }
+    // if (gitForm.loading) {
+    //   return rejectWithValue("Form is already submitting");
+    // }
 
     const formData = new FormData();
 
